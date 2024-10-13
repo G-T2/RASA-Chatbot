@@ -1,0 +1,74 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good morning
+    - good afternoon
+    - good evening
+    - hey there
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you later
+    - have a nice day
+    - thank you, goodbye
+
+- intent: ask_about_student_id
+  examples: |
+    - How do I get an Alberta student ID?
+    - Where can I find my student ID?
+    - What's the process for getting a student ID?
+    - Alberta student ID lookup
+
+- intent: ask_about_admissions
+  examples: |
+    - How do I apply?
+    - Where can I find admissions information?
+    - Tell me about the application process
+    - I want to enroll
+
+- intent: ask_about_programs
+  examples: |
+    - What programs do you offer?
+    - Tell me about your courses
+    - What can I study at AEC?
+    - What kind of programs are available?
+
+- intent: ask_about_pricing
+  examples: |
+    - How much does it cost?
+    - What are the tuition fees?
+    - Can you tell me about pricing?
+    - How expensive are the programs?
+
+- intent: ask_location
+  examples: |
+    - Where are you located?
+    - What city are you in?
+    - Where is the campus?
+
+- intent: ask_exact_address
+  examples: |
+    - What's your exact address?
+    - Can you give me the full address?
+    - How do I find your location?
+
+- intent: ask_about_degrees
+  examples: |
+    - Do you offer degree programs?
+    - Can I get a degree at AEC?
+    - What types of programs do you have?
+    - How many certificate programs do you have?
+    - How many diploma programs do you offer?
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?

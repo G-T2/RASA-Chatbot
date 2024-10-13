@@ -1,0 +1,82 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_about_student_id
+  - ask_about_admissions
+  - ask_about_programs
+  - ask_about_pricing
+  - ask_location
+  - ask_exact_address
+  - ask_about_degrees
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello! Welcome to Alberta Education Consultants. How may I assist you today?"
+    - text: "Greetings! How can I help you with your educational inquiries?"
+
+  utter_goodbye:
+    - text: "Thank you for your interest in Alberta Education Consultants. If you have any more questions, please don't hesitate to ask. Have a great day!"
+    - text: "Thank you for reaching out. We're here to help if you need any more information. Take care!"
+
+  utter_student_id:
+    - text: "You can lookup or apply for an Alberta student ID here: https://learnerregistry.ae.alberta.ca/Home/StartLookup"
+
+  utter_admissions:
+    - text: "You can find detailed information about our admissions process on our website: https://myaec.ca/admissions/. This page will guide you through the application steps and requirements."
+
+  utter_programs:
+    - text: "We offer a variety of diploma and certificate programs. Here's a list of our current offerings:
+
+      Diploma Programs:
+      - Cybersecurity Specialist Diploma
+      - Cloud Engineering Diploma
+      - Medical Office Assistant Diploma
+
+      Certificate Programs:
+      - Digital Office Certificate
+      - PC Technician Certificate
+      - IT Professional Certificate
+      - Security Analyst Certificate
+
+      You can find more details about each program at https://myaec.ca/programs/. Is there a specific field you're interested in?"
+
+  utter_pricing:
+    - text: "Our program pricing varies depending on the specific course of study. For detailed tuition information, please visit our website or contact our admissions office. They can provide you with the most up-to-date pricing for your program of interest."
+
+  utter_location:
+    - text: "Alberta Education Consultants is located in Calgary, Alberta."
+
+  utter_exact_address:
+    - text: "Our campus is located at 5980 Centre Street S, Calgary, AB T2H 0C1."
+
+  utter_degrees:
+    - text: "Alberta Education Consultants does not offer degree programs. We specialize in diploma and certificate programs. Here's a list of our current offerings:
+
+      Diploma Programs:
+      - Cybersecurity Specialist Diploma
+      - Cloud Engineering Diploma
+      - Medical Office Assistant Diploma
+
+      Certificate Programs:
+      - Digital Office Certificate
+      - PC Technician Certificate
+      - IT Professional Certificate
+      - Security Analyst Certificate
+
+      These programs are designed to provide practical, industry-relevant skills to prepare you for your career. Would you like more information about any of these programs?"
+
+  utter_iamabot:
+    - text: "I am an AI assistant designed to help you with information about Alberta Education Consultants. While I can provide general information, for specific or complex inquiries, I recommend contacting our admissions office."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - action_time_based_greet
+  - action_provide_link
+  - action_provide_program_details
+  - action_provide_location

@@ -1,0 +1,49 @@
+version: "3.1"
+
+stories:
+- story: greet and goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: student id inquiry
+  steps:
+  - intent: ask_about_student_id
+  - action: utter_student_id
+
+- story: admissions inquiry
+  steps:
+  - intent: ask_about_admissions
+  - action: utter_admissions
+
+- story: programs inquiry
+  steps:
+  - intent: ask_about_programs
+  - action: utter_programs
+
+- story: pricing inquiry
+  steps:
+  - intent: ask_about_pricing
+  - action: utter_pricing
+
+- story: location inquiry
+  steps:
+  - intent: ask_location
+  - action: utter_location
+
+- story: exact address inquiry
+  steps:
+  - intent: ask_exact_address
+  - action: utter_exact_address
+
+- story: degree programs inquiry
+  steps:
+  - intent: ask_about_degrees
+  - action: utter_degrees
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
