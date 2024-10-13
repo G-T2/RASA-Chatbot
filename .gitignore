@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.log
+.DS_Store
+.vscode/
+.idea/
+__pycache__/
+models/
+.rasa/
+
+# Ignore virtual environment
+rasa_venv/
