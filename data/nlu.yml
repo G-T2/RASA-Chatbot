@@ -9,6 +9,13 @@ nlu:
     - good afternoon
     - good evening
     - hey there
+    - hi there
+    - greetings
+    - hello there
+    - hey
+    - howdy
+    - what's up
+    - good day
 
 - intent: goodbye
   examples: |
@@ -17,6 +24,13 @@ nlu:
     - see you later
     - have a nice day
     - thank you, goodbye
+    - that's all for now
+    - talk to you later
+    - thanks for your help, bye
+    - catch you later
+    - take care
+    - gotta go
+    - farewell
 
 - intent: ask_about_student_id
   examples: |
@@ -24,6 +38,12 @@ nlu:
     - Where can I find my student ID?
     - What's the process for getting a student ID?
     - Alberta student ID lookup
+    - How do I look up my Alberta student ID?
+    - Where can I find my Alberta learner ID?
+    - What do I need to get a student ID?
+    - Is there a student ID application process?
+    - Can you help me with my student identification?
+    - I need assistance with my Alberta learner ID
 
 - intent: ask_about_admissions
   examples: |
@@ -31,6 +51,15 @@ nlu:
     - Where can I find admissions information?
     - Tell me about the application process
     - I want to enroll
+    - What are the steps to apply?
+    - Is there an application deadline?
+    - What documents do I need for admission?
+    - Can you guide me through the admissions process?
+    - What are the admission requirements?
+    - How long does the application process take?
+    - Is there an application fee?
+    - Can I apply online?
+    - Do you offer rolling admissions?
 
 - intent: ask_about_programs
   examples: |
@@ -38,6 +67,15 @@ nlu:
     - Tell me about your courses
     - What can I study at AEC?
     - What kind of programs are available?
+    - Do you have any IT-related programs?
+    - What are your most popular courses?
+    - Can you list all your diploma programs?
+    - What certificate programs do you have?
+    - Are there any cybersecurity courses?
+    - Do you offer cloud computing programs?
+    - Tell me about your medical office assistant program
+    - What's involved in the PC technician course?
+    - Can you explain the IT professional certificate?
 
 - intent: ask_about_pricing
   examples: |
@@ -45,18 +83,38 @@ nlu:
     - What are the tuition fees?
     - Can you tell me about pricing?
     - How expensive are the programs?
+    - What's the cost of the Cybersecurity program?
+    - Are there any additional fees besides tuition?
+    - How do the prices compare for different programs?
+    - Is there a payment plan available?
+    - Do you offer any scholarships?
+    - What's the total cost for a diploma program?
+    - How much do I need to budget for a certificate course?
+    - Are there any hidden costs I should know about?
 
 - intent: ask_location
   examples: |
     - Where are you located?
     - What city are you in?
     - Where is the campus?
+    - Are you based in Alberta?
+    - Is your school in Calgary?
+    - Where's your campus?
+    - Where's your location?
+    - What's your address?
+    - Which part of Calgary are you in?
+    - Is the campus easy to get to?
 
 - intent: ask_exact_address
   examples: |
     - What's your exact address?
     - Can you give me the full address?
     - How do I find your location?
+    - What's the street address of the campus?
+    - Where exactly in Calgary are you?
+    - I need the precise location for GPS
+    - What's the postal code for your campus?
+    - How do I get to your campus?
 
 - intent: ask_about_degrees
   examples: |
@@ -65,6 +123,10 @@ nlu:
     - What types of programs do you have?
     - How many certificate programs do you have?
     - How many diploma programs do you offer?
+    - Are your programs considered degrees?
+    - What's the difference between your diplomas and degrees?
+    - Can I transfer credits from your programs to a degree?
+    - Are your diplomas equivalent to university degrees?
 
 - intent: bot_challenge
   examples: |
@@ -72,3 +134,69 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - are you real or AI?
+    - is this an automated system?
+    - are you a real person?
+    - is this a chatbot?
+
+- intent: ask_about_collaborations
+  examples: |
+    - What companies do you collaborate with?
+    - Who are your industry partners?
+    - Do you work with any companies?
+    - Tell me about your collaborations
+    - Who are your partners?
+    - Do you have any industry partnerships?
+    - What organizations are you affiliated with?
+    - Are you associated with any tech companies?
+    - How do your industry collaborations benefit students?
+
+- intent: ask_phone_number
+  examples: |
+    - What is your phone number?
+    - How can I call you?
+    - What's the contact number?
+    - Phone number please
+    - How do I reach you by phone?
+    - Is there a number I can call for more information?
+    - Do you have a helpline?
+    - What's the best number to reach admissions?
+
+- intent: ask_about_financial_aid
+  examples: |
+    - Do you have information about Financial Aid?
+    - Tell me about financial assistance
+    - How can I get financial help?
+    - Is there financial aid available?
+    - What kind of financial support do you offer?
+    - Are there scholarships available?
+    - How do I apply for financial aid?
+    - Can I get help paying for my education?
+    - Do you offer any grants or bursaries?
+    - What are the requirements for financial aid?
+
+- intent: ask_about_loans
+  examples: |
+    - Are there loans that I can receive?
+    - Can I get a student loan?
+    - Tell me about loan options
+    - How do I apply for a loan?
+    - What types of loans are available?
+    - Do you offer any in-house loan programs?
+    - Are government student loans applicable?
+    - What's the process for getting a student loan?
+    - How much can I borrow in student loans?
+    - What are the interest rates on student loans?
+
+- intent: out_of_scope
+  examples: |
+    - What's the weather like today?
+    - Can you order me a pizza?
+    - How old are you?
+    - Tell me a joke
+    - What's the meaning of life?
+    - Can you help me with my homework?
+    - Who's going to win the next election?
+    - What's your favorite color?
+    - Can you play music?
+    - How do I fix my computer?

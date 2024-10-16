@@ -4,24 +4,35 @@ stories:
 - story: greet and goodbye
   steps:
   - intent: greet
-  - action: utter_greet
+  - action: action_time_based_greet
   - intent: goodbye
   - action: utter_goodbye
 
 - story: student id inquiry
   steps:
   - intent: ask_about_student_id
+  - action: action_provide_link
   - action: utter_student_id
 
 - story: admissions inquiry
   steps:
   - intent: ask_about_admissions
+  - action: action_provide_link
   - action: utter_admissions
 
 - story: programs inquiry
   steps:
   - intent: ask_about_programs
+  - action: action_provide_program_details
   - action: utter_programs
+
+- story: specific program inquiry followed by overview
+  steps:
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: utter_programs
+  - intent: ask_about_pricing
+  - action: utter_pricing
 
 - story: pricing inquiry
   steps:
@@ -31,11 +42,13 @@ stories:
 - story: location inquiry
   steps:
   - intent: ask_location
+  - action: action_provide_location
   - action: utter_location
 
 - story: exact address inquiry
   steps:
   - intent: ask_exact_address
+  - action: action_provide_exact_address
   - action: utter_exact_address
 
 - story: degree programs inquiry
@@ -47,3 +60,123 @@ stories:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- story: collaboration inquiry
+  steps:
+  - intent: ask_about_collaborations
+  - action: utter_collaborations
+
+- story: phone number inquiry
+  steps:
+  - intent: ask_phone_number
+  - action: utter_phone_number
+
+- story: financial aid inquiry
+  steps:
+  - intent: ask_about_financial_aid
+  - action: utter_financial_aid
+
+- story: loans inquiry
+  steps:
+  - intent: ask_about_loans
+  - action: utter_loans
+
+- story: out of scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+
+- story: collaboration followed by location inquiry
+  steps:
+  - intent: ask_about_collaborations
+  - action: utter_collaborations
+  - intent: ask_location
+  - action: action_provide_location
+  - action: utter_location
+
+- story: programs followed by pricing inquiry
+  steps:
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: utter_programs
+  - intent: ask_about_pricing
+  - action: utter_pricing
+
+- story: admissions followed by financial aid inquiry
+  steps:
+  - intent: ask_about_admissions
+  - action: action_provide_link
+  - action: utter_admissions
+  - intent: ask_about_financial_aid
+  - action: utter_financial_aid
+
+- story: student id inquiry followed by admissions
+  steps:
+  - intent: ask_about_student_id
+  - action: action_provide_link
+  - action: utter_student_id
+  - intent: ask_about_admissions
+  - action: action_provide_link
+  - action: utter_admissions
+
+- story: pricing inquiry followed by loans
+  steps:
+  - intent: ask_about_pricing
+  - action: utter_pricing
+  - intent: ask_about_loans
+  - action: utter_loans
+
+- story: programs and admissions inquiry
+  steps:
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: utter_programs
+  - intent: ask_about_admissions
+  - action: action_provide_link
+  - action: utter_admissions
+
+- story: location followed by exact address
+  steps:
+  - intent: ask_location
+  - action: action_provide_location
+  - action: utter_location
+  - intent: ask_exact_address
+  - action: action_provide_exact_address
+  - action: utter_exact_address
+
+- story: financial aid followed by loans inquiry
+  steps:
+  - intent: ask_about_financial_aid
+  - action: utter_financial_aid
+  - intent: ask_about_loans
+  - action: utter_loans
+
+- story: complex inquiry - programs, pricing, and financial aid
+  steps:
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: utter_programs
+  - intent: ask_about_pricing
+  - action: utter_pricing
+  - intent: ask_about_financial_aid
+  - action: utter_financial_aid
+
+- story: unclear inquiry followed by clarification
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+  - action: utter_suggest_help
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: utter_programs
+
+- story: multiple questions in one interaction
+  steps:
+  - intent: ask_about_admissions
+  - action: action_provide_link
+  - action: utter_admissions
+  - intent: ask_about_pricing
+  - action: utter_pricing
+  - intent: ask_location
+  - action: action_provide_location
+  - action: utter_location

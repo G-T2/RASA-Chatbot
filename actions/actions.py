@@ -16,7 +16,7 @@ class ActionTimeBasedGreet(Action):
         else:
             greeting = "Good evening!"
         
-        dispatcher.utter_message(text=f"{greeting} Welcome to Alberta Education Consultants. How can I assist you today?")
+        dispatcher.utter_message(text=f"{greeting} Welcome to Alberta Educational Centre. How can I assist you today?")
         return []
 
 class ActionProvideLink(Action):
@@ -31,9 +31,6 @@ class ActionProvideLink(Action):
         elif intent == "ask_about_admissions":
             link = "https://myaec.ca/admissions/"
             message = f"You can find detailed information about our admissions process here: {link}"
-        elif intent == "ask_about_programs":
-            link = "https://myaec.ca/programs/"
-            message = f"You can view all our programs here: {link}. Is there a specific field you're interested in?"
         else:
             message = "I'm sorry, I don't have a specific link for that information. How else can I assist you?"
         dispatcher.utter_message(text=message)
@@ -45,22 +42,30 @@ class ActionProvideProgramDetails(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         programs = {
-            "cybersecurity": "Our Cybersecurity Specialist Diploma program prepares you for a career in information security.",
-            "cloud": "The Cloud Engineering Diploma program focuses on cloud computing technologies and architectures.",
-            "medical office": "The Medical Office Assistant Diploma program trains you for administrative roles in healthcare settings.",
-            "digital office": "Our Digital Office Certificate program equips you with essential digital skills for modern office environments.",
-            "pc technician": "The PC Technician Certificate program covers hardware and software troubleshooting and maintenance.",
-            "it professional": "The IT Professional Certificate program provides a broad foundation in information technology.",
-            "security analyst": "Our Security Analyst Certificate program focuses on network security and threat analysis."
+            "cybersecurity": ("[Cybersecurity Specialist Diploma](https://myaec.ca/programs/cybersecurity-specialist/)", "prepares you for a career in information security."),
+            "cloud": ("[Cloud Engineering Diploma](https://myaec.ca/programs/cloud-engineering/)", "focuses on cloud computing technologies and architectures."),
+            "medical office": ("[Medical Office Assistant Diploma](https://myaec.ca/programs/medical-office-administration/)", "trains you for administrative roles in healthcare settings."),
+            "digital office": ("[Digital Office Certificate](https://myaec.ca/programs/digital-office/)", "equips you with essential digital skills for modern office environments."),
+            "pc technician": ("[PC Technician Certificate](https://myaec.ca/programs/pc-technician/)", "covers hardware and software troubleshooting and maintenance."),
+            "it professional": ("[IT Professional Certificate](https://myaec.ca/programs/it-professional/)", "provides a broad foundation in information technology."),
+            "security analyst": ("[Security Analyst Certificate](https://myaec.ca/programs/security-analyst-certificate/)", "focuses on network security and threat analysis.")
         }
         
         user_message = tracker.latest_message['text'].lower()
-        for keyword, details in programs.items():
+        for keyword, (link, details) in programs.items():
             if keyword in user_message:
-                dispatcher.utter_message(text=details)
+                message = f"Our {link} program {details}\n\nHere's a quick list of all our programs:\n\n"
+                for l, d in programs.values():
+                    message += f"• {l}\n"
+                message += "\nWould you like more information about any other program?"
+                dispatcher.utter_message(text=message)
                 return []
         
-        dispatcher.utter_message(text="I'm not sure which specific program you're asking about. We offer diploma programs in Cybersecurity, Cloud Engineering, and Medical Office Assistance, as well as certificate programs in Digital Office, PC Technician, IT Professional, and Security Analyst fields. You can find more details about all our programs at https://myaec.ca/programs/")
+        message = "I'm not sure which specific program you're asking about. We offer the following programs:\n\n"
+        for link, details in programs.values():
+            message += f"• {link}\n"
+        message += "\nYou can find more details about all our programs at https://myaec.ca/programs/. Which program interests you most?"
+        dispatcher.utter_message(text=message)
         return []
 
 class ActionProvideLocation(Action):
@@ -68,12 +73,16 @@ class ActionProvideLocation(Action):
         return "action_provide_location"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        intent = tracker.latest_message['intent'].get('name')
-        if intent == "ask_location":
-            message = "Alberta Education Consultants is located in Calgary, Alberta."
-        elif intent == "ask_exact_address":
-            message = "Our campus is located at 5980 Centre Street S, Calgary, AB T2H 0C1."
-        else:
-            message = "I'm sorry, I couldn't determine what location information you need. Can you please clarify?"
+        message = "Alberta Educational Centre is located in Calgary, Alberta."
+        dispatcher.utter_message(text=message)
+        return []
+
+class ActionProvideExactAddress(Action):
+    def name(self) -> Text:
+        return "action_provide_exact_address"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        address = "5980 Centre Street S, Calgary, AB T2H 0C1"
+        message = f"Our campus is located at {address}. You can use this address for GPS navigation or mailing purposes."
         dispatcher.utter_message(text=message)
         return []
