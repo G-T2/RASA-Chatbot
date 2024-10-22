@@ -16,61 +16,17 @@ intents:
   - ask_about_financial_aid
   - ask_about_loans
   - out_of_scope
+  - nlu_fallback
 
 responses:
-  utter_greet:
-    - text: "Hello! Welcome to Alberta Educational Centre. How may I assist you today?"
-    - text: "Greetings! How can I help you with your educational inquiries?"
-    - text: "Welcome to AEC! What information can I provide you with today?"
-
   utter_goodbye:
     - text: "Thank you for your interest in Alberta Educational Centre. If you have any more questions, please don't hesitate to ask. Have a great day!"
     - text: "Thank you for reaching out. We're here to help if you need any more information. Take care!"
     - text: "It was a pleasure assisting you. Feel free to come back if you need any further information. Goodbye!"
 
-  utter_student_id:
-    - text: "You can lookup or apply for an Alberta student ID here: https://learnerregistry.ae.alberta.ca/Home/StartLookup"
-    - text: "For Alberta student ID lookup or application, please visit: https://learnerregistry.ae.alberta.ca/Home/StartLookup"
-
-  utter_admissions:
-    - text: "You can find detailed information about our admissions process on our website: https://myaec.ca/admissions/. This page will guide you through the application steps and requirements."
-    - text: "Our admissions process is outlined at https://myaec.ca/admissions/. You'll find all the necessary steps and requirements there."
-
-  utter_programs:
-    - text: "We offer the following programs:\n\n
-      • [Cybersecurity Specialist Diploma](https://myaec.ca/programs/cybersecurity-specialist/)\n
-      • [Cloud Engineering Diploma](https://myaec.ca/programs/cloud-engineering/)\n
-      • [Medical Office Assistant Diploma](https://myaec.ca/programs/medical-office-administration/)\n
-      • [Digital Office Certificate](https://myaec.ca/programs/digital-office/)\n
-      • [PC Technician Certificate](https://myaec.ca/programs/pc-technician/)\n
-      • [IT Professional Certificate](https://myaec.ca/programs/it-professional/)\n
-      • [Security Analyst Certificate](https://myaec.ca/programs/security-analyst-certificate/)\n\n
-      Is there a specific program you're interested in?"
-
   utter_pricing:
     - text: "Our program pricing varies depending on the specific course of study. For detailed tuition information, please visit our website or contact our admissions office. They can provide you with the most up-to-date pricing for your program of interest."
     - text: "Tuition fees differ for each program. I recommend checking our website for the most current pricing details or reaching out to our admissions office for specific information about the program you're interested in."
-
-  utter_location:
-    - text: "Alberta Educational Centre is located in Calgary, Alberta."
-    - text: "We're based in Calgary, Alberta."
-
-  utter_exact_address:
-    - text: "Our campus is located at 5980 Centre Street S, Calgary, AB T2H 0C1."
-    - text: "You can find us at 5980 Centre Street S, Calgary, AB T2H 0C1."
-
-  utter_degrees:
-    - text: "Alberta Educational Centre does not offer degree programs. We specialize in diploma and certificate programs. Here's a list of our current offerings:\n\n
-      Diploma Programs:\n
-      • [Cybersecurity Specialist Diploma](https://myaec.ca/programs/cybersecurity-specialist/)\n
-      • [Cloud Engineering Diploma](https://myaec.ca/programs/cloud-engineering/)\n
-      • [Medical Office Assistant Diploma](https://myaec.ca/programs/medical-office-administration/)\n\n
-      Certificate Programs:\n
-      • [Digital Office Certificate](https://myaec.ca/programs/digital-office/)\n
-      • [PC Technician Certificate](https://myaec.ca/programs/pc-technician/)\n
-      • [IT Professional Certificate](https://myaec.ca/programs/it-professional/)\n
-      • [Security Analyst Certificate](https://myaec.ca/programs/security-analyst-certificate/)\n\n
-      These programs are designed to provide practical, industry-relevant skills to prepare you for your career. Would you like more information about any of these programs?"
 
   utter_iamabot:
     - text: "I am an AI assistant designed to help you with information about Alberta Educational Centre. While I can provide general information, for specific or complex inquiries, I recommend contacting our admissions office."
@@ -109,7 +65,6 @@ actions:
   - action_provide_program_details
   - action_provide_location
   - action_provide_exact_address
-  - utter_suggest_help
 
 session_config:
   session_expiration_time: 60

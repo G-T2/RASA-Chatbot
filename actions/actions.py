@@ -10,13 +10,13 @@ class ActionTimeBasedGreet(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         current_time = datetime.now().hour
         if 5 <= current_time < 12:
-            greeting = "Good morning!"
+            greeting = "Good morning! Welcome to Alberta Educational Centre. How can I assist you today?"
         elif 12 <= current_time < 17:
-            greeting = "Good afternoon!"
+            greeting = "Good afternoon! Welcome to Alberta Educational Centre. How can I assist you today?"
         else:
-            greeting = "Good evening!"
+            greeting = "Good evening! Welcome to Alberta Educational Centre. How can I assist you today?"
         
-        dispatcher.utter_message(text=f"{greeting} Welcome to Alberta Educational Centre. How can I assist you today?")
+        dispatcher.utter_message(text=greeting)
         return []
 
 class ActionProvideLink(Action):
@@ -25,6 +25,7 @@ class ActionProvideLink(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         intent = tracker.latest_message['intent'].get('name')
+        
         if intent == "ask_about_student_id":
             link = "https://learnerregistry.ae.alberta.ca/Home/StartLookup"
             message = f"You can look up or apply for an Alberta Student ID here: {link}"
@@ -33,6 +34,7 @@ class ActionProvideLink(Action):
             message = f"You can find detailed information about our admissions process here: {link}"
         else:
             message = "I'm sorry, I don't have a specific link for that information. How else can I assist you?"
+            
         dispatcher.utter_message(text=message)
         return []
 
@@ -51,20 +53,11 @@ class ActionProvideProgramDetails(Action):
             "security analyst": ("[Security Analyst Certificate](https://myaec.ca/programs/security-analyst-certificate/)", "focuses on network security and threat analysis.")
         }
         
-        user_message = tracker.latest_message['text'].lower()
-        for keyword, (link, details) in programs.items():
-            if keyword in user_message:
-                message = f"Our {link} program {details}\n\nHere's a quick list of all our programs:\n\n"
-                for l, d in programs.values():
-                    message += f"• {l}\n"
-                message += "\nWould you like more information about any other program?"
-                dispatcher.utter_message(text=message)
-                return []
-        
-        message = "I'm not sure which specific program you're asking about. We offer the following programs:\n\n"
+        message = "Here are all our programs:\n\n"
         for link, details in programs.values():
             message += f"• {link}\n"
-        message += "\nYou can find more details about all our programs at https://myaec.ca/programs/. Which program interests you most?"
+        message += "\nWould you like more information about any specific program?"
+        
         dispatcher.utter_message(text=message)
         return []
 

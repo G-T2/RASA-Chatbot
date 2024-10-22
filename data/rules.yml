@@ -15,12 +15,15 @@ rules:
   steps:
   - intent: out_of_scope
   - action: utter_default
+  - action: utter_suggest_help
+  - action: action_listen
 
 - rule: Fallback with suggestions
   steps:
   - intent: nlu_fallback
   - action: utter_default
   - action: utter_suggest_help
+  - action: action_listen
 
 - rule: Say hello when the user greets
   steps:
