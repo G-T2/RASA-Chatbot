@@ -1,92 +1,148 @@
 version: "3.1"
 
 stories:
-- story: greet and goodbye
+- story: goodbye with contact request
   steps:
-  - intent: greet
-  - action: action_time_based_greet
   - intent: goodbye
+  - action: utter_offer_final_contact
+  - action: action_listen
+  - intent: request_contact
+  - action: utter_contact_intro
+  - action: contact_form
+  - active_loop: contact_form
+  - active_loop: null
+  - action: action_submit_to_hubspot
   - action: utter_goodbye
+
+- story: goodbye with contact declined
+  steps:
+  - intent: goodbye
+  - action: utter_offer_final_contact
+  - action: action_listen
+  - intent: decline_contact
+  - action: utter_decline_contact
+  - action: utter_goodbye
+
+- story: direct contact request
+  steps:
+  - intent: request_contact
+  - action: utter_contact_intro
+  - action: contact_form
+  - active_loop: contact_form
+  - active_loop: null
+  - action: action_submit_to_hubspot
+  - action: utter_goodbye
+  - action: action_listen
+
+- story: contact form happy path
+  steps:
+  - intent: request_contact
+  - action: utter_contact_intro
+  - action: contact_form
+  - active_loop: contact_form
+  - slot_was_set:
+    - first_name: "provided"
+  - slot_was_set:
+    - last_name: "provided"
+  - slot_was_set:
+    - email: "provided@example.com"
+  - active_loop: null
+  - action: action_submit_to_hubspot
+  - action: utter_goodbye
+  - action: action_listen
 
 - story: student id inquiry
   steps:
   - intent: ask_about_student_id
   - action: action_provide_link
+  - action: action_listen
 
 - story: admissions inquiry
   steps:
   - intent: ask_about_admissions
   - action: action_provide_link
+  - action: action_listen
+
+- story: degrees inquiry
+  steps:
+  - intent: ask_about_degrees
+  - action: utter_degrees
+  - action: action_listen
 
 - story: programs inquiry
   steps:
   - intent: ask_about_programs
   - action: action_provide_program_details
+  - action: action_listen
 
 - story: pricing inquiry
   steps:
   - intent: ask_about_pricing
   - action: utter_pricing
+  - action: action_listen
 
 - story: location inquiry
   steps:
   - intent: ask_location
   - action: action_provide_location
+  - action: action_listen
 
 - story: exact address inquiry
   steps:
   - intent: ask_exact_address
   - action: action_provide_exact_address
+  - action: action_listen
 
 - story: bot challenge
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+  - action: action_listen
 
 - story: collaboration inquiry
   steps:
   - intent: ask_about_collaborations
   - action: utter_collaborations
+  - action: action_listen
 
 - story: phone number inquiry
   steps:
   - intent: ask_phone_number
   - action: utter_phone_number
+  - action: action_listen
 
 - story: financial aid inquiry
   steps:
   - intent: ask_about_financial_aid
   - action: utter_financial_aid
+  - action: action_listen
 
 - story: loans inquiry
   steps:
   - intent: ask_about_loans
   - action: utter_loans
+  - action: action_listen
 
-- story: collaboration followed by location
-  steps:
-  - intent: ask_about_collaborations
-  - action: utter_collaborations
-  - intent: ask_location
-  - action: action_provide_location
-
-- story: programs followed by pricing
+- story: multi-turn conversation - program then location
   steps:
   - intent: ask_about_programs
   - action: action_provide_program_details
-  - intent: ask_about_pricing
-  - action: utter_pricing
+  - action: action_listen
+  - intent: ask_location
+  - action: action_provide_location
+  - action: action_listen
 
-- story: admissions followed by financial aid
+- story: multi-turn conversation - admissions then financial aid
   steps:
   - intent: ask_about_admissions
   - action: action_provide_link
+  - action: action_listen
   - intent: ask_about_financial_aid
   - action: utter_financial_aid
+  - action: action_listen
 
-- story: complex inquiry - programs and financial aid
+- story: greet and continue
   steps:
-  - intent: ask_about_programs
-  - action: action_provide_program_details
-  - intent: ask_about_financial_aid
-  - action: utter_financial_aid
+  - intent: greet
+  - action: action_time_based_greet
+  - action: action_listen

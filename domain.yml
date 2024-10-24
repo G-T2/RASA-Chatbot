@@ -3,61 +3,114 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - ask_about_student_id
-  - ask_about_admissions
-  - ask_about_programs
-  - ask_about_pricing
-  - ask_location
-  - ask_exact_address
-  - ask_about_degrees
+  - affirm
+  - deny
   - bot_challenge
-  - ask_about_collaborations
-  - ask_phone_number
+  - ask_about_programs
+  - ask_about_admissions
+  - ask_about_student_id
   - ask_about_financial_aid
   - ask_about_loans
+  - ask_about_degrees
+  - ask_location
+  - ask_exact_address
+  - ask_phone_number
+  - ask_about_collaborations
+  - request_contact
+  - decline_contact
   - out_of_scope
-  - nlu_fallback
+  - ask_about_pricing
+
+entities:
+  - first_name
+  - last_name
+  - email
+
+slots:
+  first_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: contact_form
+  last_name:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: contact_form
+  email:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: contact_form
+
+forms:
+  contact_form:
+    required_slots:
+      - first_name
+      - last_name
+      - email
 
 responses:
   utter_goodbye:
-    - text: "Thank you for your interest in Alberta Educational Centre. If you have any more questions, please don't hesitate to ask. Have a great day!"
-    - text: "Thank you for reaching out. We're here to help if you need any more information. Take care!"
-    - text: "It was a pleasure assisting you. Feel free to come back if you need any further information. Goodbye!"
+    - text: "Thank you for your interest in Alberta Educational Centre. Have a great day!"
+    - text: "Thank you for chatting with us. Have a wonderful day!"
+
+  utter_offer_final_contact:
+    - text: "Before you go, would you like to speak with an advisor who can provide more detailed information about our programs?"
+    - text: "Would you like me to have an advisor reach out to you with more information before you go?"
+
+  utter_contact_intro:
+    - text: "I'll help connect you with an advisor. First, could you tell me your first name?"
+    - text: "I'll be happy to have an advisor contact you. To get started, what's your first name?"
+
+  utter_ask_first_name:
+    - text: "What's your first name?"
+    - text: "Could you tell me your first name?"
+
+  utter_ask_last_name:
+    - text: "And your last name?"
+    - text: "What's your last name?"
+
+  utter_ask_email:
+    - text: "Finally, what's the best email address for the advisor to reach you at?"
+    - text: "What email address should we use to contact you?"
+
+  utter_decline_contact:
+    - text: "No problem! Feel free to come back if you have any questions in the future."
+    - text: "That's fine! You can always reach out later if you change your mind."
 
   utter_pricing:
-    - text: "Our program pricing varies depending on the specific course of study. For detailed tuition information, please visit our website or contact our admissions office. They can provide you with the most up-to-date pricing for your program of interest."
-    - text: "Tuition fees differ for each program. I recommend checking our website for the most current pricing details or reaching out to our admissions office for specific information about the program you're interested in."
+    - text: "Our program pricing varies depending on the specific course of study. For detailed tuition information, please visit our website or contact our admissions office."
 
   utter_iamabot:
     - text: "I am an AI assistant designed to help you with information about Alberta Educational Centre. While I can provide general information, for specific or complex inquiries, I recommend contacting our admissions office."
-    - text: "I'm an AI chatbot created to assist with queries about Alberta Educational Centre. For detailed or complex questions, please reach out to our admissions office."
 
   utter_collaborations:
     - text: "We collaborate with several industry-leading companies and organizations, including TestOut, EC-Council Academia, Alberta Association of Career Colleges, CompTIA, Cisco Networking Academy, Certiport, and CCI Learning."
-    - text: "Our industry partners include TestOut, EC-Council Academia, Alberta Association of Career Colleges, CompTIA, Cisco Networking Academy, Certiport, and CCI Learning. These collaborations ensure our programs are aligned with industry standards."
 
   utter_phone_number:
     - text: "You can reach us at +1 403 441 2059."
-    - text: "Our contact number is +1 403 441 2059. Feel free to give us a call!"
 
   utter_financial_aid:
-    - text: "For information on Financial Aid options, please view it here: https://myaec.ca/tuition-financial-aid/"
-    - text: "We offer various financial aid options. You can find detailed information at https://myaec.ca/tuition-financial-aid/"
-    - text: "Financial assistance is available for eligible students. Check out our financial aid page at https://myaec.ca/tuition-financial-aid/ for more details."
+    - text: "For information on Financial Aid options, please visit our [Financial Aid page](https://myaec.ca/tuition-financial-aid/)"
+
+  utter_degrees:
+    - text: "Alberta Educational Centre does not offer degree programs. We specialize in diploma and certificate programs that provide practical, industry-relevant skills."
 
   utter_loans:
-    - text: "For information on Full-time-loans and Full-time-grants accessible to students, we recommend visiting Alberta Student Aid: https://studentaid.alberta.ca/types-of-funding/types-of-full-time-student-aid/#page1683"
-    - text: "Alberta Student Aid provides information about full-time loans and grants. Visit https://studentaid.alberta.ca/types-of-funding/types-of-full-time-student-aid/#page1683 to learn more."
-    - text: "You can explore loan options through Alberta Student Aid. They offer details on full-time loans and grants at https://studentaid.alberta.ca/types-of-funding/types-of-full-time-student-aid/#page1683"
+    - text: "For information on Full-time-loans and Full-time-grants accessible to students, we recommend visiting [Alberta Student Aid](https://studentaid.alberta.ca/types-of-funding/types-of-full-time-student-aid/#page1683)"
 
   utter_default:
-    - text: "I'm sorry, I didn't quite understand that. Could you rephrase your question or ask about our programs, admissions, financial aid, or location?"
-    - text: "I apologize, but I'm not sure how to respond to that. Can you try asking about our programs, admissions process, financial aid options, or our location?"
-    - text: "I'm having trouble understanding your request. Would you mind rephrasing? I can provide information about our programs, admissions, financial aid, and campus location."
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase your question? I can help with information about our programs, admissions, financial aid, or location."
 
   utter_suggest_help:
     - text: "I can help you with information about our programs, admissions process, financial aid, or campus location. What would you like to know more about?"
-    - text: "Would you like to know about our programs, admissions, financial aid options, or our location? I'd be happy to provide information on these topics."
 
 actions:
   - action_time_based_greet
@@ -65,6 +118,8 @@ actions:
   - action_provide_program_details
   - action_provide_location
   - action_provide_exact_address
+  - validate_contact_form
+  - action_submit_to_hubspot
 
 session_config:
   session_expiration_time: 60

@@ -1,31 +1,65 @@
 version: "3.1"
 
 rules:
-- rule: Say goodbye anytime the user says goodbye
+- rule: Greet when user says hello
   steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - intent: greet
+  - action: action_time_based_greet
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
-
-- rule: Out-of-scope
+- rule: Handle out-of-scope inputs
+  condition:
+  - active_loop: null
   steps:
   - intent: out_of_scope
   - action: utter_default
   - action: utter_suggest_help
-  - action: action_listen
 
-- rule: Fallback with suggestions
+- rule: Say 'I am a bot' when user challenges
+  condition:
+  - active_loop: null
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Handle fallback
+  condition:
+  - active_loop: null
   steps:
   - intent: nlu_fallback
   - action: utter_default
   - action: utter_suggest_help
+
+- rule: Contact form interrupted
+  condition:
+  - active_loop: contact_form
+  steps:
+  - intent: out_of_scope
+  - action: contact_form
+  - active_loop: contact_form
+
+- rule: Contact form interrupted by contact request
+  condition:
+  - active_loop: contact_form
+  steps:
+  - intent: request_contact
+  - action: contact_form
+  - active_loop: contact_form
+
+- rule: Submit contact form
+  condition:
+  - active_loop: contact_form
+  steps:
+  - action: contact_form
+  - active_loop: null
+  - action: action_submit_to_hubspot
+  - action: utter_goodbye
   - action: action_listen
 
-- rule: Say hello when the user greets
+- rule: Activate contact form
+  condition:
+  - active_loop: null
   steps:
-  - intent: greet
-  - action: action_time_based_greet
+  - intent: request_contact
+  - action: utter_contact_intro
+  - action: contact_form
+  - active_loop: contact_form
