@@ -3,8 +3,6 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
   - bot_challenge
   - ask_about_programs
   - ask_about_admissions

@@ -5,7 +5,6 @@ from rasa_sdk.types import DomainDict
 import requests
 import os
 import re
-import time
 from datetime import datetime
 import logging
 from dotenv import load_dotenv
@@ -118,7 +117,7 @@ class ValidateContactForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate last_name value."""
         if len(slot_value.strip()) < 2:
-            dispatcher.utter_message(text="Please provide a valid last name.")
+            dispatcher.utter_message(text="Please provide a valid last name so we can properly record your information.")
             return {"last_name": None}
         return {"last_name": slot_value.strip().title()}
 
@@ -133,7 +132,7 @@ class ValidateContactForm(FormValidationAction):
         email_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
         if re.match(email_pattern, slot_value):
             return {"email": slot_value.lower()}
-        dispatcher.utter_message(text="I need a valid email address. Please provide an email in the format: example@domain.com")
+        dispatcher.utter_message(text="I need a valid email address to ensure our advisor can reach you. Please provide an email in the format: example@domain.com")
         return {"email": None}
 
 class ActionSubmitToHubSpot(Action):
@@ -149,32 +148,24 @@ class ActionSubmitToHubSpot(Action):
         first_name = tracker.get_slot("first_name")
         last_name = tracker.get_slot("last_name")
         email = tracker.get_slot("email")
-
-        if not all([first_name, last_name, email]):
-            logger.error("Missing required information for HubSpot submission")
-            dispatcher.utter_message(
-                text="I apologize, but I'm missing some required information. Please try the contact process again."
-            )
-            return []
-
+        
         hubspot_api_key = os.getenv("HUBSPOT_API_KEY")
         if not hubspot_api_key:
-            logger.error("Missing HubSpot API key")
+            logger.error("Missing HubSpot API key in environment variables")
             dispatcher.utter_message(
                 text="I apologize, but I'm having trouble connecting to our system. Please contact us directly at +1 403 441 2059."
             )
             return []
-
-        # Convert current time to Unix timestamp (milliseconds)
-        current_time = int(time.mktime(datetime.now().timetuple()) * 1000)
 
         contact_data = {
             "properties": {
                 "firstname": first_name,
                 "lastname": last_name,
                 "email": email,
-                "submission_time": current_time,
-                "last_chatbot_interaction": current_time
+                "source": "AEC Rasa Chatbot",
+                "submission_time": datetime.now().isoformat(),
+                "last_chatbot_interaction": datetime.now().isoformat(),
+                "chatbot_contact_reason": "Program Information Request"
             }
         }
 
