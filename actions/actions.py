@@ -95,7 +95,18 @@ class ValidateContactForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_contact_form"
 
-    def validate_first_name(
+    async def required_slots(
+        self,
+        domain_slots: List[Text],
+        dispatcher: "CollectingDispatcher",
+        tracker: "Tracker",
+        domain: "DomainDict",
+    ) -> List[Text]:
+        """A list of required slots that the form has to fill"""
+        logger.debug("Extracting required slots")  # Add logging
+        return ["first_name", "last_name", "email"]
+
+    async def validate_first_name(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -103,12 +114,12 @@ class ValidateContactForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate first_name value."""
-        if len(slot_value.strip()) < 2:
-            dispatcher.utter_message(text="I need your first name to properly address you. Please provide a valid first name.")
+        if not slot_value or len(slot_value.strip()) < 2:
+            dispatcher.utter_message(text="Please provide a valid first name.")
             return {"first_name": None}
         return {"first_name": slot_value.strip().title()}
 
-    def validate_last_name(
+    async def validate_last_name(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -116,12 +127,12 @@ class ValidateContactForm(FormValidationAction):
         domain: DomainDict,
     ) -> Dict[Text, Any]:
         """Validate last_name value."""
-        if len(slot_value.strip()) < 2:
-            dispatcher.utter_message(text="Please provide a valid last name so we can properly record your information.")
+        if not slot_value or len(slot_value.strip()) < 2:
+            dispatcher.utter_message(text="Please provide a valid last name.")
             return {"last_name": None}
         return {"last_name": slot_value.strip().title()}
 
-    def validate_email(
+    async def validate_email(
         self,
         slot_value: Any,
         dispatcher: CollectingDispatcher,
@@ -130,10 +141,10 @@ class ValidateContactForm(FormValidationAction):
     ) -> Dict[Text, Any]:
         """Validate email input."""
         email_pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
-        if re.match(email_pattern, slot_value):
-            return {"email": slot_value.lower()}
-        dispatcher.utter_message(text="I need a valid email address to ensure our advisor can reach you. Please provide an email in the format: example@domain.com")
-        return {"email": None}
+        if not slot_value or not re.match(email_pattern, slot_value):
+            dispatcher.utter_message(text="Please provide a valid email address (example@domain.com)")
+            return {"email": None}
+        return {"email": slot_value.lower()}
 
 class ActionSubmitToHubSpot(Action):
     def name(self) -> Text:
@@ -161,11 +172,7 @@ class ActionSubmitToHubSpot(Action):
             "properties": {
                 "firstname": first_name,
                 "lastname": last_name,
-                "email": email,
-                "source": "AEC Rasa Chatbot",
-                "submission_time": datetime.now().isoformat(),
-                "last_chatbot_interaction": datetime.now().isoformat(),
-                "chatbot_contact_reason": "Program Information Request"
+                "email": email
             }
         }
 
@@ -185,18 +192,18 @@ class ActionSubmitToHubSpot(Action):
             if response.status_code == 201:
                 logger.info(f"Successfully created HubSpot contact for {first_name} {last_name}")
                 dispatcher.utter_message(
-                    text=f"Thank you {first_name}! I've saved your contact information and one of our advisors will reach out to you shortly with more details about our programs."
+                    text=f"Thank you {first_name}! An advisor will reach out to you shortly."
                 )
             else:
                 logger.error(f"HubSpot Error: {response.status_code} - {response.text}")
                 dispatcher.utter_message(
-                    text="I apologize, but I'm having trouble saving your information. Please contact us directly at +1 403 441 2059."
+                    text="I'm having trouble saving your information. Please contact us at +1 403 441 2059."
                 )
 
         except Exception as e:
             logger.error(f"Error submitting to HubSpot: {str(e)}")
             dispatcher.utter_message(
-                text="I apologize, but I'm having trouble with your request. Please contact us directly at +1 403 441 2059."
+                text="I'm having trouble with your request. Please contact us at +1 403 441 2059."
             )
 
         return []

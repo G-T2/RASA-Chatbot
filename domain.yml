@@ -18,6 +18,7 @@ intents:
   - decline_contact
   - out_of_scope
   - ask_about_pricing
+  - inform 
 
 entities:
   - first_name
@@ -27,25 +28,39 @@ entities:
 slots:
   first_name:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
+    - type: from_entity
+      entity: first_name
     - type: from_text
       conditions:
       - active_loop: contact_form
+        requested_slot: first_name
+    initial_value: null
+  
   last_name:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
+    - type: from_entity
+      entity: last_name
     - type: from_text
       conditions:
       - active_loop: contact_form
+        requested_slot: last_name
+    initial_value: null
+  
   email:
     type: text
-    influence_conversation: true
+    influence_conversation: false
     mappings:
+    - type: from_entity
+      entity: email
     - type: from_text
       conditions:
       - active_loop: contact_form
+        requested_slot: email
+    initial_value: null
 
 forms:
   contact_form:
@@ -53,6 +68,9 @@ forms:
       - first_name
       - last_name
       - email
+    ignored_intents:
+      - bot_challenge
+      - out_of_scope
 
 responses:
   utter_goodbye:
@@ -63,13 +81,9 @@ responses:
     - text: "Before you go, would you like to speak with an advisor who can provide more detailed information about our programs?"
     - text: "Would you like me to have an advisor reach out to you with more information before you go?"
 
-  utter_contact_intro:
-    - text: "I'll help connect you with an advisor. First, could you tell me your first name?"
-    - text: "I'll be happy to have an advisor contact you. To get started, what's your first name?"
-
   utter_ask_first_name:
-    - text: "What's your first name?"
-    - text: "Could you tell me your first name?"
+    - text: "I'll be happy to have an advisor contact you. What's your first name?"
+    - text: "I'll help connect you with an advisor. Could you tell me your first name?"
 
   utter_ask_last_name:
     - text: "And your last name?"

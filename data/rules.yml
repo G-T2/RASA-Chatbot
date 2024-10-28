@@ -1,10 +1,128 @@
 version: "3.1"
 
 rules:
+# Basic interaction rules
 - rule: Greet when user says hello
   steps:
   - intent: greet
   - action: action_time_based_greet
+
+# Form handling rules
+- rule: Activate contact form
+  condition:
+  - active_loop: null
+  steps:
+  - intent: request_contact
+  - action: utter_ask_first_name
+  - action: contact_form
+  - active_loop: contact_form
+
+- rule: Submit form
+  condition:
+  - active_loop: contact_form
+  steps:
+  - action: contact_form
+  - active_loop: null
+  - action: action_submit_to_hubspot
+  - action: utter_goodbye
+
+- rule: Contact form interrupted
+  condition:
+  - active_loop: contact_form
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+  - action: contact_form
+  - active_loop: contact_form
+
+# Single-turn interaction rules
+- rule: Handle programs inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_programs
+  - action: action_provide_program_details
+  - action: action_listen
+
+- rule: Handle admissions inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_admissions
+  - action: action_provide_link
+  - action: action_listen
+
+- rule: Handle student ID inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_student_id
+  - action: action_provide_link
+  - action: action_listen
+
+- rule: Handle financial aid inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_financial_aid
+  - action: utter_financial_aid
+  - action: action_listen
+
+- rule: Handle loans inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_loans
+  - action: utter_loans
+  - action: action_listen
+
+- rule: Handle location inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_location
+  - action: action_provide_location
+  - action: action_listen
+
+- rule: Handle exact address inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_exact_address
+  - action: action_provide_exact_address
+  - action: action_listen
+
+- rule: Handle pricing inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_pricing
+  - action: utter_pricing
+  - action: action_listen
+
+- rule: Handle phone number inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_phone_number
+  - action: utter_phone_number
+  - action: action_listen
+
+- rule: Handle collaborations inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_collaborations
+  - action: utter_collaborations
+  - action: action_listen
+
+- rule: Handle degrees inquiry
+  condition:
+  - active_loop: null
+  steps:
+  - intent: ask_about_degrees
+  - action: utter_degrees
+  - action: action_listen
 
 - rule: Handle out-of-scope inputs
   condition:
@@ -14,33 +132,25 @@ rules:
   - action: utter_default
   - action: utter_suggest_help
 
-- rule: Say 'I am a bot' when user challenges
+- rule: Handle bot challenge
   condition:
   - active_loop: null
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Handle fallback
+- rule: Handle goodbye with contact offer
   condition:
   - active_loop: null
   steps:
-  - intent: nlu_fallback
-  - action: utter_default
-  - action: utter_suggest_help
+  - intent: goodbye
+  - action: utter_offer_final_contact
+  - action: action_listen
 
-- rule: Contact form interrupted
+- rule: Handle decline contact
   condition:
-  - active_loop: contact_form
+  - active_loop: null
   steps:
-  - intent: out_of_scope
-  - action: contact_form
-  - active_loop: contact_form
-
-- rule: Contact form interrupted by contact request
-  condition:
-  - active_loop: contact_form
-  steps:
-  - intent: request_contact
-  - action: contact_form
-  - active_loop: contact_form
+  - intent: decline_contact
+  - action: utter_decline_contact
+  - action: utter_goodbye

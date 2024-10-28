@@ -35,6 +35,22 @@ nlu:
     - bye bye
     - that's everything I needed
 
+- intent: inform
+  examples: |
+    - my first name is [John](first_name)
+    - my last name is [Smith](last_name)
+    - my email is [john.smith@example.com](email)
+    - [John](first_name)
+    - [Smith](last_name)
+    - [john.smith@example.com](email)
+    - it's [John](first_name)
+    - it's [Smith](last_name)
+    - it's [john.smith@example.com](email)
+    - you can reach me at [john.smith@example.com](email)
+    - call me [John](first_name)
+    - [Smith](last_name) is my last name
+    - here's my email [john.smith@example.com](email)
+
 - intent: request_contact
   examples: |
     - yes please contact me
