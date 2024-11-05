@@ -16,6 +16,28 @@ nlu:
     - howdy
     - what's up
     - good day
+    - hey, how’s it going?
+    - yo
+    - sup
+    - hello again
+    - hiya
+    - nice to see you
+    - hey, nice to meet you
+    - hello, friend
+    - hey buddy
+    - hi friend
+    - top of the morning to you
+    - salutations
+    - hey, good to see you
+    - hey pal
+    - hey mate
+    - how do you do?
+    - howdy partner
+    - hey hey
+    - hello hello
+    - welcome
+    - evening
+    - afternoon
 
 - intent: goodbye
   examples: |
@@ -34,6 +56,36 @@ nlu:
     - I need to go
     - bye bye
     - that's everything I needed
+    - see you around
+    - I’m out
+    - I’m off now
+    - peace out
+    - until next time
+    - it’s been nice chatting
+    - alright, I’m heading out
+    - we’ll talk later
+    - I’m done here
+    - so long
+    - all set, thanks
+    - I’ll be back
+    - thanks, that’s all for now
+    - I’m logging off
+    - time to go
+    - that’s it for today
+    - have a good one
+    - I’ll catch up later
+    - I’m signing off
+    - cheers, bye
+    - alright, that’s all
+    - see ya!
+    - nice talking to you
+    - until we meet again
+    - see you next time
+    - alright, I’ll go now
+    - later!
+    - that’s it, thanks
+    - I’ve got what I need, bye
+    - I’m leaving now
 
 - intent: inform
   examples: |
@@ -50,6 +102,37 @@ nlu:
     - call me [John](first_name)
     - [Smith](last_name) is my last name
     - here's my email [john.smith@example.com](email)
+    - intent: inform
+    - my name is [John](first_name)
+    - people call me [John](first_name)
+    - it’s [John](first_name) for my first name
+    - I’m known as [John](first_name)
+    - you can put down [John](first_name)
+    - [John](first_name) is my first name
+    - you can address me as [John](first_name)
+    - just [John](first_name)
+    - I go by [John](first_name)
+    - I’m called [John](first_name)
+    - my surname is [Smith](last_name)
+    - family name is [Smith](last_name)
+    - my last name’s [Smith](last_name)
+    - last name’s [Smith](last_name)
+    - you can put down [Smith](last_name)
+    - [Smith](last_name) is my surname
+    - last name is [Smith](last_name)
+    - use [Smith](last_name) as my last name
+    - my family name’s [Smith](last_name)
+    - surname [Smith](last_name)
+    - my email’s [john.smith@example.com](email)
+    - email me at [john.smith@example.com](email)
+    - here’s my email address: [john.smith@example.com](email)
+    - you can reach me via [john.smith@example.com](email)
+    - drop me a line at [john.smith@example.com](email)
+    - please contact me at [john.smith@example.com](email)
+    - my email contact is [john.smith@example.com](email)
+    - [john.smith@example.com](email) is my email
+    - use [john.smith@example.com](email) to reach me
+    - [john.smith@example.com](email) is my preferred email
 
 - intent: request_contact
   examples: |
@@ -75,6 +158,57 @@ nlu:
     - can someone contact me
     - how do I speak with an advisor
     - can I talk to someone about the programs
+    - I’d like more details, please
+    - please send more information about the programs
+    - I’m interested in learning more
+    - yes, I’d appreciate more info
+    - could someone reach out to me?
+    - how do I get more details?
+    - I’m interested in speaking with someone
+    - can you connect me with an advisor?
+    - please provide additional information
+    - yes, I’d like to talk to someone
+    - can I have more information, please?
+    - who can I talk to about these programs?
+    - I’d like a follow-up on this
+    - yes, could I receive more information?
+    - can someone reach out with details?
+    - I’d like to get in touch with an advisor
+    - could you provide more details?
+    - yes, I need more information on this
+    - how can I get more info on the programs?
+    - I’d like to hear more
+    - could I arrange a call with an advisor?
+    - yes, let’s set up a time to chat
+    - please get in touch with me about this
+    - I’m interested in a follow-up
+    - yes, please send more info on the courses
+    - how can I talk to someone for more details?
+    - could you connect me with someone for info?
+    - yes, more details would be great
+    - how do I learn more about the programs?
+    - I’d love to talk to an advisor about this
+    - could you email me the program details?
+    - I’d like to discuss the programs further
+    - who can I contact for more information?
+    - can I schedule a call to discuss this?
+    - I’m looking for more info on your courses
+    - could someone reach out about the courses?
+    - yes, please send further information
+    - how do I request more info about the school?
+    - yes, I’d like to chat with an advisor
+    - I’d love to get some more insight on this
+    - please put me in touch with an advisor
+    - I’m hoping to get more details
+    - yes, could someone provide program info?
+    - I’m seeking further details about courses
+    - is there a way to get more info emailed?
+    - I’d appreciate a callback about the courses
+    - could I get more information on enrollment?
+    - can I talk to someone for more guidance?
+    - yes, I’d like to have more information
+    - how can I find out more about admissions?
+    - could someone explain the programs in detail?
 
 - intent: decline_contact
   examples: |
@@ -97,6 +231,58 @@ nlu:
     - no contact needed
     - I'm still deciding
     - I'll contact you if needed
+    - I’m fine for now
+    - no need to reach out
+    - just checking things out
+    - not looking to be contacted
+    - I’ll pass for now
+    - no contact needed at the moment
+    - maybe some other time
+    - I don’t need assistance right now
+    - I’m good, thanks
+    - I don’t need more info
+    - I’ll reach out if I’m interested
+    - not interested at the moment
+    - no follow-up needed
+    - I don’t need help right now
+    - I’m browsing for now
+    - I’ll reach out if I want more
+    - that’s okay, I don’t need contact
+    - no additional info needed, thanks
+    - I’ll come back if I need more
+    - I don’t need to be contacted
+    - that’s alright, I’m just browsing
+    - no, I’m all set
+    - maybe later, but not now
+    - I don’t need any help, thanks
+    - nothing needed right now
+    - I’m just looking, no need for contact
+    - I’ll reach out if I need to
+    - just exploring for now
+    - I’ll come back if I need anything
+    - no assistance needed at this time
+    - I’ll let you know if I’m interested
+    - I don’t need a follow-up, thanks
+    - just doing some research for now
+    - I’ll handle it myself if needed
+    - no follow-up required
+    - I don’t need any more details
+    - nothing needed at the moment
+    - I’ll contact you if I decide to
+    - I’m just getting information on my own
+    - that’s okay, no need to reach out
+    - I’m just gathering info right now
+    - not ready for contact yet
+    - I’ll reach out when I’m ready
+    - no need for follow-up, thanks
+    - I’ll manage without help for now
+    - thanks, but I’m good on my own
+    - I don’t need to talk to anyone
+    - maybe some other time, but not now
+    - just checking things out on my own
+    - I’ll be in touch if I need anything
+    - no further info required, thanks
+    - I’ll reach out when I want more info  
 
 - intent: ask_about_student_id
   examples: |
@@ -112,6 +298,36 @@ nlu:
     - I need assistance with my Alberta learner ID
     - student ID help
     - get student ID
+    - How can I obtain my Alberta student ID?
+    - What’s the website to get my Alberta student ID?
+    - Where do I go to apply for a student ID in Alberta?
+    - Can you direct me to the Alberta student ID site?
+    - How do I access my Alberta student number?
+    - Is there a place online to get my Alberta student ID?
+    - What’s required to apply for an Alberta learner ID?
+    - Where do I register for my Alberta student ID?
+    - How do I retrieve my Alberta learner ID?
+    - Who issues the Alberta student ID?
+    - I’m trying to get an Alberta student ID
+    - What’s the process to apply for an Alberta learner ID?
+    - Can you tell me how to find my Alberta student number?
+    - Do I need a special site for an Alberta student ID?
+    - Where can I sign up for an Alberta learner ID?
+    - Where can I get an Alberta student identification number?
+    - How do I request an Alberta student ID?
+    - What’s the official link for the Alberta learner ID?
+    - How do I locate my Alberta student ID?
+    - Where do I apply for my Alberta learner ID?
+    - Is there a portal for Alberta student ID registration?
+    - How do I obtain my Alberta student identification number?
+    - Can you help me apply for my Alberta learner ID?
+    - What’s the Alberta student ID registration process?
+    - Can I access my student ID number online in Alberta?
+    - Where can I verify my Alberta student ID?
+    - I need to register for an Alberta student ID
+    - How can I get help with my Alberta student number?
+    - Is there a specific site to retrieve my Alberta student ID?
+    - What steps are needed to get an Alberta student ID?
 
 - intent: ask_about_admissions
   examples: |
@@ -131,6 +347,57 @@ nlu:
     - enrollment process
     - how to register
     - start application
+    - How do I get started with admissions?
+    - Where can I submit my application?
+    - What’s required to apply?
+    - How do I know if I qualify for admission?
+    - Are there prerequisites for applying?
+    - What’s the process to become a student?
+    - Do I need any specific qualifications to enroll?
+    - Can you help me understand the enrollment steps?
+    - Where do I find the admissions criteria?
+    - How can I join the program?
+    - Are there specific dates for application submission?
+    - Is there a cutoff date to apply?
+    - Are all programs open for enrollment?
+    - What’s the first step to enroll?
+    - What’s included in the admissions packet?
+    - How can I check if I’m eligible to apply?
+    - What’s the minimum requirement for admission?
+    - Where can I access the application form?
+    - Can someone assist me with the application?
+    - What deadlines should I be aware of for admissions?
+    - Is there a limit on applications per year?
+    - Can I submit my application any time?
+    - What documents are needed to enroll?
+    - How can I start my enrollment application?
+    - Is there a waiting list for enrollment?
+    - What info do I need to begin my application?
+    - What’s the cost of applying?
+    - Where do I submit the application materials?
+    - Is the admissions application available online?
+    - Are there application periods each year?
+    - Can you explain the requirements for enrollment?
+    - How long does it take to get accepted?
+    - What happens after I submit my application?
+    - Do I need to create an account to apply?
+    - Where can I learn more about admission fees?
+    - Is the application form digital or physical?
+    - Who can help me with the application requirements?
+    - Are all programs open to new applicants?
+    - What kind of credentials are needed to apply?
+    - What’s the best way to submit my documents?
+    - Do you accept late applications?
+    - Can I apply to multiple programs?
+    - Are there specific criteria for each program?
+    - Where can I see the list of required documents?
+    - How do I verify that my application was received?
+    - What are the tuition fees related to admission?
+    - Who can I contact about enrollment questions?
+    - Is there an entrance exam for admission?
+    - How do I check the status of my application?
+    - What’s the timeline for acceptance notifications?
+    - Are transcripts required for application?
 
 - intent: ask_about_programs
   examples: |
@@ -151,6 +418,58 @@ nlu:
     - course offerings
     - what can I study
     - show me your programs
+     - What certificate programs do you have in IT?
+    - Can you tell me about the PC Technician program?
+    - Do you offer a course in cybersecurity?
+    - I’m interested in the IT Professional Certificate; what does it cover?
+    - Can I learn about cloud engineering at your school?
+    - What’s included in the Cybersecurity Specialist Diploma?
+    - Do you offer training for digital office skills?
+    - What courses are available for medical office training?
+    - Is there a program for becoming a Security Analyst?
+    - Tell me more about your cloud engineering options
+    - What’s required for the Digital Office Certificate?
+    - Can I get certified as a cybersecurity specialist?
+    - What does the PC Technician program entail?
+    - How can I become a Security Analyst with your courses?
+    - Do you have a Medical Office Assistant program?
+    - I’m interested in the IT Professional Certificate; how long is it?
+    - What topics are covered in cloud engineering?
+    - Can I get a certificate in digital office administration?
+    - What does the Security Analyst Certificate prepare me for?
+    - Is there a cybersecurity program with hands-on training?
+    - How can I get certified in PC repair?
+    - What’s the course structure for cybersecurity?
+    - Do you have a program for learning network security?
+    - Can I get more information on the Digital Office Certificate?
+    - Are there evening classes for the PC Technician program?
+    - What’s the duration of the Medical Office Assistant Certificate?
+    - Can I study cloud computing here?
+    - What’s involved in the IT Professional Certificate?
+    - How do I become a cybersecurity specialist with your courses?
+    - Do you offer job placement for the Security Analyst program?
+    - Is there a program for entry-level IT professionals?
+    - How do I enroll in the Cloud Engineering course?
+    - What will I learn in the PC Technician program?
+    - Are there certifications for digital office work?
+    - Can you tell me about your program in medical office assistance?
+    - What kind of training do you offer in IT security?
+    - How does the Cloud Engineering program work?
+    - What skills do I gain from the Cybersecurity Diploma?
+    - Is there a certificate for office administration?
+    - Do you offer training for security analysis?
+    - How can I prepare for a career as a PC technician?
+    - Can you give me details on the Medical Office Assistant program?
+    - Are there courses specifically for digital office skills?
+    - How do I sign up for the IT Professional Certificate?
+    - What’s the focus of the Security Analyst Certificate?
+    - Are there programs for cloud architecture?
+    - Can I specialize in cybersecurity with your courses?
+    - Do you offer certifications for IT professionals?
+    - What’s the next step after the IT Professional Certificate?
+    - Can I study computer support here?
+    - Do you have programs in network security?
+    - What entry-level programs do you offer in IT?
 
 - intent: ask_about_pricing
   examples: |
@@ -169,6 +488,57 @@ nlu:
     - program costs
     - what's the price
     - cost of studying
+    - What are the fees for the IT Professional Certificate?
+    - Can you give me a breakdown of tuition fees?
+    - How much is the Cloud Engineering program?
+    - What’s the average cost of a course here?
+    - How much will I pay for the PC Technician program?
+    - Do you have info on program fees?
+    - What’s the tuition rate for cybersecurity?
+    - Are there fees for materials or lab access?
+    - What’s the cost of the Security Analyst Certificate?
+    - How much do I need for the Medical Office Assistant program?
+    - Do program fees vary by course?
+    - Is there a different price for online courses?
+    - Are there installment options for tuition?
+    - Can I pay tuition in monthly payments?
+    - Is financial aid available?
+    - Are discounts available for early payment?
+    - What’s included in the program fee?
+    - Can I get a price list for all courses?
+    - What’s the fee structure for a part-time student?
+    - Are there administrative fees in addition to tuition?
+    - How much does it cost to become a Security Analyst?
+    - Are there any enrollment fees?
+    - What’s the cost for digital office certification?
+    - Do I need to pay upfront for the full program?
+    - Are textbooks included in the course fees?
+    - How much is the Medical Office Assistant Certificate?
+    - Is there a difference in cost for international students?
+    - How much will I pay for a certificate program in total?
+    - What’s the full cost of training for a PC technician?
+    - Can I get an estimate for total expenses?
+    - Do you charge for exams or certifications?
+    - What’s the average tuition for IT programs?
+    - Are there any payment options available?
+    - How much does the training for cybersecurity specialists cost?
+    - Are there fees for technology or lab use?
+    - Can you give me a detailed list of expenses?
+    - What’s the full price for a diploma course?
+    - How much should I expect to spend on cloud engineering?
+    - Are any scholarships specific to the IT programs?
+    - Is there a registration fee I should know about?
+    - What’s the average cost per semester?
+    - How much does it cost per course?
+    - Are there financing options?
+    - What’s the price range for certificate courses?
+    - How much does tuition go up each year?
+    - Is there a deposit required to secure a place?
+    - Are there any additional charges I should budget for?
+    - What’s the application fee for new students?
+    - How much is the upfront payment for enrollment?
+    - Are there extra fees for lab-based programs?
+    - Do you offer a sliding scale for tuition fees?
 
 - intent: ask_location
   examples: |
@@ -185,6 +555,36 @@ nlu:
     - where can I find you
     - campus location
     - directions to campus
+    - Can you tell me your address?
+    - What’s the location of your school?
+    - Where exactly is the campus?
+    - Are you located near downtown Calgary?
+    - Do you have a map of the campus location?
+    - How do I get to your campus?
+    - What’s the physical address of the school?
+    - Are you in Alberta’s city center?
+    - Is your campus close to public transit?
+    - Can I visit your campus in person?
+    - Where can I find directions to your school?
+    - What’s the area of Calgary you’re in?
+    - Do you have multiple locations?
+    - How far are you from central Calgary?
+    - Can you send me your campus location?
+    - Is your school in Calgary’s suburbs?
+    - Are you near any major landmarks?
+    - What’s the postal address of the campus?
+    - Do you have a location map for visitors?
+    - Is parking available at your campus?
+    - Are you located in the northwest of Calgary?
+    - How accessible is your campus?
+    - Can I walk to your campus from downtown?
+    - Which neighborhood is the campus in?
+    - Where should I go for an in-person visit?
+    - Is the school located near any major bus routes?
+    - Do you have directions on your website?
+    - How can I reach your campus by car?
+    - Is there a visitor’s entrance?
+    - Can I drop by to tour the campus?
 
 - intent: ask_exact_address
   examples: |
@@ -198,6 +598,36 @@ nlu:
     - How do I get to your campus?
     - full address please
     - complete address
+    - Can you send me your full address?
+    - What’s your campus’s precise address?
+    - I need the detailed location
+    - Can I have the exact street address?
+    - What’s the building number and street for your campus?
+    - Where exactly can I find you in Calgary?
+    - Please give me the full campus address
+    - What’s your location for mapping purposes?
+    - Can I get the exact coordinates for GPS?
+    - What’s the address including postal code?
+    - I need the specific address for directions
+    - How do I find the campus with GPS?
+    - Where should I input on my GPS to reach you?
+    - What’s the entire address of the campus?
+    - Could you provide the address in detail?
+    - What address should I use to locate you?
+    - I’m looking for the exact location details
+    - What street name and number should I search for?
+    - I need the precise campus location
+    - What’s the detailed location for your school?
+    - Could you give me the complete address?
+    - How do I find you using the full address?
+    - What’s the specific street address of the school?
+    - Where can I locate you exactly?
+    - Do you have a specific address I can follow?
+    - Could you share the full address with zip code?
+    - What’s the GPS-friendly address for your campus?
+    - Where exactly are you situated in Calgary?
+    - How do I pinpoint the campus location?
+    - Can you give me the location including postal details?
 
 - intent: ask_about_degrees
   examples: |
@@ -213,6 +643,36 @@ nlu:
     - degree options
     - bachelor programs
     - university degrees
+    - Do you provide any bachelor’s programs?
+    - Are there any degrees available at your institution?
+    - Can I earn a degree through your school?
+    - What are my options for a degree program?
+    - Does AEC grant degrees?
+    - Do you offer any four-year programs?
+    - Are there any undergraduate programs here?
+    - Can I pursue a bachelor’s degree at AEC?
+    - Do you have degree-granting programs?
+    - Is a diploma from AEC equivalent to a degree?
+    - Are any of your courses part of a degree program?
+    - Do your certificates lead to a degree?
+    - Can I study for a degree at your campus?
+    - Are there associate degree programs?
+    - Do you offer degrees in IT?
+    - Are your programs comparable to a college degree?
+    - Does your school grant any type of degree?
+    - Can credits from your programs apply toward a degree?
+    - Is there an option to pursue higher education degrees?
+    - What credentials can I earn at AEC?
+    - Do you offer graduate programs or degrees?
+    - Can I further my studies with a degree after your courses?
+    - Do your programs transition into degree pathways?
+    - Are your diplomas recognized as degrees?
+    - Do any of your programs count toward a degree?
+    - What’s the closest thing to a degree program here?
+    - Is there a pathway to a university degree?
+    - Do you have advanced certifications like degrees?
+    - Are there accredited degree options at AEC?
+    - Is a diploma from AEC seen as a degree by employers?
 
 - intent: bot_challenge
   examples: |
@@ -226,6 +686,57 @@ nlu:
     - is this a chatbot?
     - are you automated
     - talking to a machine?
+    - are you an AI?
+    - are you human or a program?
+    - is there a person on the other end?
+    - are you an actual person?
+    - is this an AI conversation?
+    - am I chatting with a machine?
+    - are you computer-generated?
+    - are you a real individual?
+    - am I speaking to software?
+    - is this a real person I’m talking to?
+    - are you just a program?
+    - is there a human behind this?
+    - am I interacting with a bot?
+    - are you artificial intelligence?
+    - is this conversation AI-driven?
+    - are you a virtual assistant?
+    - are you computer-based?
+    - are you real or just a script?
+    - am I speaking to a real entity?
+    - is this a live person I’m talking to?
+    - are you a human or a robot?
+    - is this a real-time chat with a person?
+    - am I chatting with software?
+    - are you fully automated?
+    - am I speaking with AI right now?
+    - are you a virtual agent?
+    - is this an artificial assistant?
+    - are you a chatbot or a human?
+    - is this conversation generated by AI?
+    - are you a software program?
+    - is there a real person here?
+    - are you an actual assistant?
+    - am I communicating with a real human?
+    - is this chat controlled by AI?
+    - are you a digital assistant?
+    - are you a synthetic person?
+    - is this chat session automated?
+    - am I connected to a live person?
+    - are you a computer or a person?
+    - is this interaction AI-based?
+    - are you a human operator?
+    - am I speaking to a human being?
+    - are you programmed to respond?
+    - is there someone real here?
+    - am I talking to a computer program?
+    - are you a digital agent?
+    - are you automated or human?
+    - am I interacting with a machine?
+    - is this an AI-driven assistant?
+    - are you a person or software?
+    - are you here in real-time?
 
 - intent: ask_about_collaborations
   examples: |
@@ -241,6 +752,57 @@ nlu:
     - partner companies
     - industry connections
     - company partnerships
+    - Do you have partnerships with any companies?
+    - Which companies support your programs?
+    - Are there any tech industry partnerships?
+    - What firms does the school work with?
+    - Do you collaborate with industry leaders?
+    - Are there partnerships to help students gain experience?
+    - Which companies are affiliated with your school?
+    - Can you share details about your business partners?
+    - Are there organizations you work closely with?
+    - Who are your educational partners?
+    - Do any tech firms support your school?
+    - What corporate partnerships do you have?
+    - Are there companies that offer internships through you?
+    - Who do you collaborate with in the tech field?
+    - Are there any companies offering sponsorships?
+    - Do you have corporate sponsors?
+    - Are there organizations involved in your programs?
+    - What industry partnerships does your school offer?
+    - Which companies provide internships or job placements?
+    - Do you collaborate with companies for student projects?
+    - Are there any tech giants involved with your institute?
+    - Who are the main companies you’re affiliated with?
+    - Are you connected to any professional organizations?
+    - Do you have connections with industry mentors?
+    - What professional networks do you belong to?
+    - Which companies help support your curriculum?
+    - Are there corporate partnerships for career advancement?
+    - Who are the key partners in your educational programs?
+    - Are there any startup collaborations at your institute?
+    - Do you have partnerships for practical training?
+    - Which companies contribute to student success?
+    - Are there companies that offer guest lectures?
+    - What type of industry links does the school have?
+    - How do your partnerships benefit students’ careers?
+    - Do you collaborate with IT firms?
+    - Are any partnerships focused on hands-on training?
+    - What collaborations do you have in cybersecurity?
+    - Are there businesses involved with your tech programs?
+    - Are companies offering guidance or mentoring?
+    - What organizations contribute to your learning programs?
+    - Do you collaborate with employers for skill-building?
+    - Which industry players support your courses?
+    - Are there tech companies working with your school?
+    - How do you partner with businesses for student development?
+    - Do any firms provide training materials for courses?
+    - Are there collaborations for real-world training?
+    - Which partnerships help bridge students to industry?
+    - Do you have partnerships in cloud technology?
+    - Are there companies that help shape your curriculum?
+    - Do you work with any firms to enhance student skills?
+    - How does the school work with industry to support learning?
 
 - intent: ask_phone_number
   examples: |
@@ -254,6 +816,56 @@ nlu:
     - What's the best number to reach admissions?
     - contact phone
     - telephone number
+    - Can I get your phone number?
+    - Do you have a contact number?
+    - What’s the number for your office?
+    - How can I speak with someone over the phone?
+    - Could you provide the main phone line?
+    - What number do I call for support?
+    - Is there a contact number for inquiries?
+    - How do I call the admissions office?
+    - Could I have the school’s phone number?
+    - Can I speak to someone directly by phone?
+    - Do you have a student helpline number?
+    - What’s the best number to reach your staff?
+    - How do I contact the front desk by phone?
+    - Do you offer phone support?
+    - What’s the phone line for general inquiries?
+    - How can I get in touch by telephone?
+    - Is there a main line I can call?
+    - How do I call your school?
+    - Where can I find your phone contact?
+    - I’d like to call the admissions team; what’s the number?
+    - What’s the direct line to your campus?
+    - Is there a customer service number?
+    - Could you tell me the phone number for inquiries?
+    - Where can I reach you by telephone?
+    - How can I get your phone number for admissions?
+    - Do you have a number for student services?
+    - What’s the best way to call your office?
+    - Could I call someone for more details?
+    - How do I contact the help desk by phone?
+    - Can I get the admissions contact number?
+    - I need a contact number for your school
+    - What number should I call for assistance?
+    - Is there a hotline I can call?
+    - What’s the best number for enrollment questions?
+    - How do I reach your office directly?
+    - Do you have a phone line for prospective students?
+    - How can I reach student support by phone?
+    - What’s the number for general questions?
+    - Can you give me a phone number to call?
+    - Who can I call for more information?
+    - Is there a specific number for program details?
+    - Do you have a toll-free number?
+    - How do I reach your counseling services by phone?
+    - Can I speak to someone in admissions over the phone?
+    - Could I get a direct line for inquiries?
+    - What’s your main office phone number?
+    - Can I reach an advisor by phone?
+    - What number should I call to ask about programs?
+    - Do you have a contact number for registration?
+    - Where do I call for financial aid questions?
 
 - intent: ask_about_financial_aid
   examples: |
@@ -270,6 +882,57 @@ nlu:
     - funding options
     - financial support
     - paying for school
+    - What financial aid options do you have?
+    - Can you explain your financial aid programs?
+    - Are there loans available for students?
+    - How can I find out if I qualify for aid?
+    - Do you have a financial aid office?
+    - Are there any tuition assistance programs?
+    - What’s the process for applying for scholarships?
+    - Do you offer work-study programs?
+    - Can I receive financial aid for a certificate program?
+    - Are there any scholarships for IT students?
+    - How does financial aid work at your school?
+    - What’s covered under financial assistance?
+    - Do you provide emergency financial help?
+    - Can international students apply for financial aid?
+    - Is there financial aid for part-time students?
+    - What grants are available to new students?
+    - Can you guide me through the financial aid process?
+    - Are there scholarships specific to cybersecurity?
+    - What’s the application deadline for financial aid?
+    - Do I need to reapply for aid each year?
+    - Can financial aid be used for books and supplies?
+    - How do I know if I’m eligible for a grant?
+    - What kinds of loans are offered for students?
+    - Is there financial assistance for low-income students?
+    - How much financial aid can I receive?
+    - Are there payment plans for tuition?
+    - Can I get a scholarship to reduce tuition costs?
+    - Is there aid available for adult learners?
+    - Do you offer merit-based scholarships?
+    - Are there financial aid options for veterans?
+    - What’s required to maintain my financial aid?
+    - Do you offer any full scholarships?
+    - How do I apply for a bursary?
+    - Can I get funding for online programs?
+    - Are there aid options for unemployed individuals?
+    - Do you have options for deferred tuition payments?
+    - Can financial aid be combined with scholarships?
+    - What’s the typical financial aid package like?
+    - Are there special scholarships for high achievers?
+    - Does your school provide financial counseling?
+    - Are grants and scholarships available for IT programs?
+    - Can financial aid cover my living expenses?
+    - Are there funds for students with disabilities?
+    - What forms do I need for financial assistance?
+    - Can financial aid help cover the cost of certifications?
+    - Are there aid options specifically for single parents?
+    - Do you offer financial aid workshops?
+    - How competitive are your scholarships?
+    - Are there deadlines to apply for funding?
+    - How can I increase my chances of receiving aid?
+    - What financial aid options exist for continuing education?
 
 - intent: ask_about_loans
   examples: |
@@ -285,6 +948,56 @@ nlu:
     - What are the interest rates on student loans?
     - student loan information
     - loan application
+    - Can I apply for a loan to cover tuition?
+    - Are there private loan options for students?
+    - How do I qualify for a student loan?
+    - What’s the maximum loan amount I can receive?
+    - Do you provide details on student loans?
+    - Are there specific loans for certificate programs?
+    - How long is the loan approval process?
+    - Do I need a cosigner for student loans?
+    - Can student loans cover living expenses?
+    - Are there deferred payment options for loans?
+    - What’s the repayment schedule for loans?
+    - Are there interest-free loan options?
+    - How can I repay a student loan?
+    - Is there a loan program for part-time students?
+    - Do you have any short-term loan options?
+    - Can loans be combined with other financial aid?
+    - Are there loans available for international students?
+    - How can I check my eligibility for a loan?
+    - Is there an online application for student loans?
+    - Can I get a loan without a credit history?
+    - What documents do I need to apply for a loan?
+    - Are there grace periods on loan repayments?
+    - Can I take out multiple student loans?
+    - Are there loans specific to IT programs?
+    - Do loans cover all program costs?
+    - Are there student loans for distance learning?
+    - Do student loans cover program fees and books?
+    - How do interest rates on loans work?
+    - Can I defer loan repayment until after graduation?
+    - Are there loans with flexible repayment terms?
+    - What’s the minimum amount I can borrow in loans?
+    - How long do I have to repay a student loan?
+    - Do you provide guidance on loan applications?
+    - Can I apply for a loan each academic year?
+    - Are there fixed-rate loan options?
+    - What’s the process for loan renewal?
+    - Can loan payments be adjusted based on income?
+    - Is there a loan forgiveness program?
+    - Do you offer subsidized loan options?
+    - Are loan funds disbursed directly to the school?
+    - Are there penalties for early loan repayment?
+    - Do you help students find loan providers?
+    - How do I begin the loan application process?
+    - Is there a cap on loan amounts per semester?
+    - Can loans cover only tuition fees?
+    - Are there loans available for online courses?
+    - Is there a deadline for applying for student loans?
+    - Can I cancel a loan if I no longer need it?
+    - Are there loans with no interest while studying?
+    - Do you offer counseling on student loan repayment?
 
 - intent: out_of_scope
   examples: |
@@ -302,3 +1015,106 @@ nlu:
     - tell me about yourself
     - what do you think about AI
     - can you drive a car
+    - Can you tell me a bedtime story?
+    - Do you know any celebrities?
+    - What’s your favorite movie?
+    - How do I lose weight?
+    - Can you help me write a novel?
+    - What’s the best recipe for pasta?
+    - Do you know any magic tricks?
+    - Can you tell me my fortune?
+    - How do I become famous?
+    - Do you have any hobbies?
+    - Can you recommend a good movie?
+    - What’s the best vacation spot?
+    - How do I train my dog?
+    - Who’s the richest person in the world?
+    - Can you give me fashion advice?
+    - Do you believe in aliens?
+    - What’s your favorite song?
+    - Can you teach me to dance?
+    - Can you predict the future?
+    - How do I make friends?
+    - Do you know any good jokes?
+    - How do I get over a breakup?
+    - What’s your favorite book?
+    - Can you solve this math problem for me?
+    - Can you write a poem?
+    - What’s the best car to buy?
+    - How do I become a better cook?
+    - Can you help me plan a wedding?
+    - How do I start a business?
+    - Do you have any advice for dating?
+    - Can you do my taxes for me?
+    - What’s your favorite holiday?
+    - Can you recommend a restaurant?
+    - How do I quit my job?
+    - What’s your favorite animal?
+    - Do you know any riddles?
+    - Can you sing a song?
+    - Can you help me meditate?
+    - What’s the best way to invest money?
+    - How do I find true love?
+    - Can you tell me a scary story?
+    - What’s your favorite sport?
+    - How do I learn a new language?
+    - Do you know my future?
+    - Can you be my personal trainer?
+    - Can you give me a stock market tip?
+    - What’s the best city to live in?
+    - How do I learn guitar?
+    - Can you solve a Rubik’s cube?
+    - What’s your favorite food?
+    - Can you help me study for a test?
+    - Can you recommend a TV show?
+    - How do I improve my memory?
+    - What’s the latest news?
+    - Can you do a magic trick?
+    - Do you have a favorite place?
+    - How do I handle stress?
+    - Can you give me life advice?
+    - Can you read my mind?
+    - Do you have feelings?
+    - What’s the most popular song right now?
+    - Can you do a dance?
+    - How do I make money online?
+    - What’s your opinion on climate change?
+    - Can you give me directions?
+    - How do I fix my relationship?
+    - Can you write a love letter?
+    - What’s your opinion on politics?
+    - Can you answer trivia questions?
+    - How do I make a resume?
+    - Can you book a flight for me?
+    - Do you think robots will take over the world?
+    - Can you speak another language?
+    - What’s your favorite thing to do?
+    - Can you make me laugh?
+    - How do I start exercising?
+    - Can you answer philosophical questions?
+    - What’s your favorite season?
+    - How do I change a tire?
+    - Can you write a script for a play?
+    - Can you answer personal questions?
+    - How do I get a promotion at work?
+    - Can you tell me about fashion trends?
+    - How do I handle difficult people?
+    - Can you recommend a workout routine?
+    - Do you believe in ghosts?
+    - How do I get over my fear of public speaking?
+    - Can you give me a random fact?
+    - How do I become a better writer?
+    - Can you do any impressions?
+    - What’s your opinion on movies?
+    - Can you help me solve a puzzle?
+    - Do you think time travel is possible?
+    - Can you give me cooking tips?
+    - How do I take care of a plant?
+    - Can you tell me your thoughts on music?
+    - How do I prepare for a job interview?
+    - Can you help me redecorate my room?
+    - What’s the meaning of happiness?
+    - Can you give me a weather forecast?
+    - How do I plan a budget?
+    - Can you tell me a funny story?
+    - What’s your favorite way to relax?
