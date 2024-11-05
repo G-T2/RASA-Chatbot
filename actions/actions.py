@@ -42,8 +42,8 @@ class ActionProvideLink(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         intent = tracker.latest_message['intent'].get('name')
         
-        if intent == "ask_about_student_id":
-            message = "You can look up or apply for an Alberta Student ID here: [Alberta Student Registry](https://learnerregistry.ae.alberta.ca/Home/StartLookup)"
+        if intent == "ask_about_digital_id":
+            message = "To register for MyAlberta Digital ID, go to the Create account page. Fill-in the rquested information and follow the navigation page here: [Alberta.ca Account](https://learnerregistry.ae.alberta.ca/Home/StartLookup)"
         elif intent == "ask_about_admissions":
             message = "You can find detailed information about our admissions process here: [Admissions Page](https://myaec.ca/admissions/)"
         else:
