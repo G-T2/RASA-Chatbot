@@ -13,7 +13,6 @@ rules:
   - active_loop: null
   steps:
   - intent: request_contact
-  - action: utter_ask_first_name
   - action: contact_form
   - active_loop: contact_form
 

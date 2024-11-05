@@ -2,6 +2,7 @@ from typing import Dict, Text, List, Any
 from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
+from rasa_sdk.events import SlotSet
 import requests
 import os
 import re
@@ -57,13 +58,13 @@ class ActionProvideProgramDetails(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         programs = {
-            "cybersecurity": ("[Cybersecurity Specialist Diploma](https://myaec.ca/programs/cybersecurity-specialist/)", "prepares you for a career in information security."),
-            "cloud": ("[Cloud Engineering Diploma](https://myaec.ca/programs/cloud-engineering/)", "focuses on cloud computing technologies and architectures."),
-            "medical office": ("[Medical Office Assistant Diploma](https://myaec.ca/programs/medical-office-administration/)", "trains you for administrative roles in healthcare settings."),
-            "digital office": ("[Digital Office Certificate](https://myaec.ca/programs/digital-office/)", "equips you with essential digital skills for modern office environments."),
-            "pc technician": ("[PC Technician Certificate](https://myaec.ca/programs/pc-technician/)", "covers hardware and software troubleshooting and maintenance."),
-            "it professional": ("[IT Professional Certificate](https://myaec.ca/programs/it-professional/)", "provides a broad foundation in information technology."),
-            "security analyst": ("[Security Analyst Certificate](https://myaec.ca/programs/security-analyst-certificate/)", "focuses on network security and threat analysis.")
+            "cybersecurity": ("[Cybersecurity Specialist Diploma](https://www.afewoldiesandagoodie.ca/cybersecurity-specialist)", "prepares you for a career in information security."),
+            "cloud": ("[Cloud Engineering Diploma](https://www.afewoldiesandagoodie.ca/cloud-engineering)", "focuses on cloud computing technologies and architectures."),
+            "medical office": ("[Medical Office Assistant Diploma](https://www.afewoldiesandagoodie.ca/medical-office-assistant)", "trains you for administrative roles in healthcare settings."),
+            "digital office": ("[Digital Office Certificate](https://www.afewoldiesandagoodie.ca/digital-office)", "equips you with essential digital skills for modern office environments."),
+            "pc technician": ("[PC Technician Certificate](https://www.afewoldiesandagoodie.ca/pc-tech)", "covers hardware and software troubleshooting and maintenance."),
+            "it professional": ("[IT Professional Certificate](https://www.afewoldiesandagoodie.ca/it-professional)", "provides a broad foundation in information technology."),
+            "security analyst": ("[Security Analyst Certificate](https://www.afewoldiesandagoodie.ca/security-analyst)", "focuses on network security and threat analysis.")
         }
         
         program_message = "These are all the programs we currently offer at Alberta Educational Centre:\n\n"
@@ -156,18 +157,19 @@ class ActionSubmitToHubSpot(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]
     ) -> List[Dict[Text, Any]]:
+        logger.info("Starting new HubSpot submission")
         first_name = tracker.get_slot("first_name")
         last_name = tracker.get_slot("last_name")
         email = tracker.get_slot("email")
         
         hubspot_api_key = os.getenv("HUBSPOT_API_KEY")
+        logger.info(f"API key status: {'Present' if hubspot_api_key else 'Missing'}")
         if not hubspot_api_key:
             logger.error("Missing HubSpot API key in environment variables")
             dispatcher.utter_message(
                 text="I apologize, but I'm having trouble connecting to our system. Please contact us directly at +1 403 441 2059."
             )
             return []
-
         contact_data = {
             "properties": {
                 "firstname": first_name,
@@ -175,12 +177,10 @@ class ActionSubmitToHubSpot(Action):
                 "email": email
             }
         }
-
         headers = {
             "Authorization": f"Bearer {hubspot_api_key}",
             "Content-Type": "application/json"
         }
-
         try:
             response = requests.post(
                 "https://api.hubapi.com/crm/v3/objects/contacts",
@@ -188,9 +188,13 @@ class ActionSubmitToHubSpot(Action):
                 json=contact_data,
                 timeout=10
             )
-
             if response.status_code == 201:
                 logger.info(f"Successfully created HubSpot contact for {first_name} {last_name}")
+                dispatcher.utter_message(
+                    text=f"Thank you {first_name}! An advisor will reach out to you shortly."
+                )
+            elif response.status_code == 409:
+                logger.info(f"Contact already exists for email {email}")
                 dispatcher.utter_message(
                     text=f"Thank you {first_name}! An advisor will reach out to you shortly."
                 )
@@ -199,11 +203,9 @@ class ActionSubmitToHubSpot(Action):
                 dispatcher.utter_message(
                     text="I'm having trouble saving your information. Please contact us at +1 403 441 2059."
                 )
-
         except Exception as e:
             logger.error(f"Error submitting to HubSpot: {str(e)}")
             dispatcher.utter_message(
                 text="I'm having trouble with your request. Please contact us at +1 403 441 2059."
             )
-
-        return []
+        return [SlotSet("first_name", None), SlotSet("last_name", None), SlotSet("email", None)]
