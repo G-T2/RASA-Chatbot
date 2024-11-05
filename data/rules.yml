@@ -51,11 +51,11 @@ rules:
   - action: action_provide_link
   - action: action_listen
 
-- rule: Handle student ID inquiry
+- rule: Handle Alberta Digital ID inquiry
   condition:
   - active_loop: null
   steps:
-  - intent: ask_about_student_id
+  - intent: ask_about_digital_id
   - action: action_provide_link
   - action: action_listen
 
