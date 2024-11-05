@@ -284,50 +284,48 @@ nlu:
     - no further info required, thanks
     - I’ll reach out when I want more info  
 
-- intent: ask_about_student_id
+- intent: ask_about_digital_id
   examples: |
-    - How do I get an Alberta student ID?
-    - Where can I find my student ID?
-    - What's the process for getting a student ID?
-    - Alberta student ID lookup
-    - How do I look up my Alberta student ID?
-    - Where can I find my Alberta learner ID?
-    - What do I need to get a student ID?
-    - Is there a student ID application process?
-    - Can you help me with my student identification?
-    - I need assistance with my Alberta learner ID
-    - student ID help
-    - get student ID
-    - How can I obtain my Alberta student ID?
-    - What’s the website to get my Alberta student ID?
-    - Where do I go to apply for a student ID in Alberta?
-    - Can you direct me to the Alberta student ID site?
-    - How do I access my Alberta student number?
-    - Is there a place online to get my Alberta student ID?
-    - What’s required to apply for an Alberta learner ID?
-    - Where do I register for my Alberta student ID?
-    - How do I retrieve my Alberta learner ID?
-    - Who issues the Alberta student ID?
-    - I’m trying to get an Alberta student ID
-    - What’s the process to apply for an Alberta learner ID?
-    - Can you tell me how to find my Alberta student number?
-    - Do I need a special site for an Alberta student ID?
-    - Where can I sign up for an Alberta learner ID?
-    - Where can I get an Alberta student identification number?
-    - How do I request an Alberta student ID?
-    - What’s the official link for the Alberta learner ID?
-    - How do I locate my Alberta student ID?
-    - Where do I apply for my Alberta learner ID?
-    - Is there a portal for Alberta student ID registration?
-    - How do I obtain my Alberta student identification number?
-    - Can you help me apply for my Alberta learner ID?
-    - What’s the Alberta student ID registration process?
-    - Can I access my student ID number online in Alberta?
-    - Where can I verify my Alberta student ID?
-    - I need to register for an Alberta student ID
-    - How can I get help with my Alberta student number?
-    - Is there a specific site to retrieve my Alberta student ID?
-    - What steps are needed to get an Alberta student ID?
+    - How do I get an Alberta Digital ID?
+    - What's the process for getting an Alberta Digital ID?
+    - Alberta Digital ID lookup
+    - How do I look up my Alberta Digital ID?
+    - Where can I find my Alberta Digital ID?
+    - What do I need to get an Alberta Digital ID?
+    - Is there an Alberta Digital ID application process?
+    - Can you help me with my Alberta Digital ID?
+    - I need assistance with my Alberta Digital ID
+    - digital ID help
+    - get digital ID
+    - How can I obtain my Alberta Digital ID?
+    - What’s the website to get my Alberta Digital ID?
+    - Where do I go to apply for a Digital ID in Alberta?
+    - What is the application process for Alberta Digital ID?
+    - Can you direct me to the Alberta Digital ID site?
+    - How do I access my Alberta Digital ID?
+    - Is there a place online to get my Alberta Digital ID?
+    - What are the requirements for an Alberta Digital ID?
+    - Where do I register for my Alberta Digital ID?
+    - How do I retrieve my Alberta Digital ID?
+    - Who issues the Alberta Digital ID?
+    - I’m trying to get an Alberta Digital ID
+    - What’s the process to apply for an Alberta Digital ID?
+    - How to apply for Alberta Digital ID
+    - Can you tell me how to find my Alberta Digital ID?
+    - Do I need a special site for an Alberta Digital ID?
+    - Where can I sign up for an Alberta Digital ID?
+    - How do I request an Alberta Digital ID?
+    - What’s the official link for the Alberta Digital ID?
+    - How do I locate my Alberta Digital ID?
+    - Where do I apply for my Alberta Digital ID?
+    - Is there a portal for Alberta Digital ID registration?
+    - Can you help me apply for my Alberta Digital ID?
+    - What’s the Alberta Digital ID registration process?
+    - Where can I verify my Alberta Digital ID?
+    - I need to register for an Alberta Digital ID
+    - How can I get help with my Alberta Digital ID?
+    - Is there a specific site to retrieve my Alberta Digital ID?
+    - What steps are needed to get an Alberta Digital ID?
 
 - intent: ask_about_admissions
   examples: |
