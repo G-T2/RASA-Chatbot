@@ -13,7 +13,7 @@
 
 /* Chat header styling */
 .chat-header {
-    background: #0091EA;
+    background: rgb(28, 69, 114);
     color: white;
     padding: 15px;
     border-radius: 10px 10px 0 0;
@@ -38,7 +38,7 @@
     width: 100%;
     height: 350px;
     border: none;
-    border-bottom: 2px solid #0091EA;
+    border-bottom: 2px solid rgb(28, 69, 114);
     padding: 10px;
     overflow-y: scroll;
     background-color: #F4F4F9;
@@ -59,7 +59,7 @@
 #user-input {
     width: 100%;
     padding: 10px;
-    border: 2px solid #0091EA;
+    border: 2px solid rgb(28, 69, 114);
     border-radius: 5px;
     font-size: 16px;
     background-color: #FFFFFF;
@@ -69,16 +69,16 @@
 #send-button {
     width: 100%;
     padding: 10px;
-    background-color: #0091EA;
-    color: white;
-    border: 2px solid #0091EA;
-    border-radius: 5px;
+    background-color: rgb(28, 69, 114);
+    color: #eb756c;
+    border: 2px solid rgb(28, 69, 114);
+    border-radius: 7px;
     cursor: pointer;
     font-size: 16px;
 }
 
 #send-button:hover {
-    background-color: #0075BA;
+    background-color: rgb(28, 69, 114);
 }
 
 /* Chat toggle button */
@@ -86,7 +86,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #0091EA;
+    background: rgb(28, 69, 114);
     color: white;
     width: 60px;
     height: 60px;
@@ -105,15 +105,24 @@
     margin: 5px 0;
     padding: 10px;
     font-size: 14px;
+    position: relative;
+    border-radius: 15px;
+    display: inline-block; /* Prevent full-width */
+    max-width: 80%;
+    word-wrap: break-word;
 }
 
 .user {
-    color: #2E7D32;
+    background-color: #e7dfdf;
+    color: #EF493E;
     text-align: right;
+    float: right; /* Keep the user message on the right */
+    clear: both; /* Ensure it clears previous floated elements */
 }
 
 .goodie-bot {
-    color: #0277BD;
+    background-color: #e3e9f3;
+    color: rgb(28, 69, 114);
     text-align: left;
 }
 
@@ -123,18 +132,37 @@
 }
 
 .user strong {
-    color: #1B5E20;
+    color: #EF493E;
 }
 
 .goodie-bot strong {
-    color: #01579B;
+    color: rgb(51, 71, 91);
 }
 
 .message a {
-    color: #0091EA;
+    color: rgb(51, 71, 91);
     text-decoration: underline;
 }
 
 .message.goodie-bot a {
-    color: #FF6F00;
+    color: #EF493E;
+}
+
+.topics-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.topic-button {
+    padding: 8px 16px;
+    background-color: rgb(51, 135, 192);
+    color: #faf9ff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.topic-button:hover {
+    background-color: #262262;
 }

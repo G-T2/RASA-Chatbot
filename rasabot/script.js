@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (message) {
             addMessageToChat('User', message);
 
-            fetch("https://140f-142-110-39-187.ngrok-free.app/webhooks/rest/webhook", {
+            fetch("https://05ee-104-205-149-202.ngrok-free.app/webhooks/rest/webhook", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -91,6 +91,58 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
 
-    // Add greeting message
-    addMessageToChat('Goodie-Bot', 'Hello! Welcome to our fake website. My name is Goodie. How can I assist you today?');
+    // Add greeting message with topic buttons
+    function addGreetingWithTopics() {
+        // Greeting message
+        addMessageToChat('Goodie-Bot', 'Welcome to our fake website. My name is Goodie and Im your Academic Assistant! Please select a topic below:');
+
+        // Create a container for the topic buttons
+        const topicsContainer = document.createElement('div');
+        topicsContainer.classList.add('topics-container');
+
+        // Define topics and create buttons
+        const topics = ['Programs', 'Admissions', 'Fees'];
+        topics.forEach(topic => {
+            const button = document.createElement('button');
+            button.className = 'topic-button';
+            button.innerText = topic;
+            button.addEventListener('click', () => handleTopicSelection(topic));
+            topicsContainer.appendChild(button);
+        });
+
+        // Append the topics container to the chat window
+        chatWindow.appendChild(topicsContainer);
+    }
+
+    // Handle topic selection by sending the selected topic to the bot
+    function handleTopicSelection(topic) {
+        addMessageToChat('User', topic); // Display selected topic as user message
+
+        fetch("https://05ee-104-205-149-202.ngrok-free.app/webhooks/rest/webhook", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Origin': 'https://renounding.github.io',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify({ sender: 'user', message: topic })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                data.forEach(response => {
+                    addMessageToChat('Goodie-Bot', response.text);
+                });
+            } else {
+                addMessageToChat('Goodie-Bot', "I apologize, I didn't understand that. Could you please rephrase?");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            addMessageToChat('Goodie-Bot', 'Error connecting to the server. Please try again later.');
+        });
+    }
+
+    // Initialize the chatbot with the greeting and topic buttons
+    addGreetingWithTopics();
 });
