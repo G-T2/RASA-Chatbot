@@ -96,7 +96,7 @@ rules:
   - active_loop: null
   steps:
   - intent: ask_about_pricing
-  - action: utter_pricing
+  - action: action_provide_pdf
   - action: action_listen
 
 - rule: Handle phone number inquiry

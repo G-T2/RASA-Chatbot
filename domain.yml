@@ -98,7 +98,7 @@ responses:
     - text: "That's fine! You can always reach out later if you change your mind."
 
   utter_pricing:
-    - text: "Our program pricing varies depending on the specific course of study. For detailed tuition information, please visit our website or contact our admissions office."
+    - text: "You can find the inclusion of tuition fee per program in the our course outline. For questions regarding any of these, contact our admissions office."
 
   utter_iamabot:
     - text: "I am an AI assistant designed to help you with information about Alberta Educational Centre. While I can provide general information, for specific or complex inquiries, I recommend contacting our admissions office."
@@ -132,6 +132,7 @@ actions:
   - action_provide_exact_address
   - validate_contact_form
   - action_submit_to_hubspot
+  - action_provide_pdf
 
 session_config:
   session_expiration_time: 60

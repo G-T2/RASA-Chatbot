@@ -209,3 +209,11 @@ class ActionSubmitToHubSpot(Action):
                 text="I'm having trouble with your request. Please contact us at +1 403 441 2059."
             )
         return [SlotSet("first_name", None), SlotSet("last_name", None), SlotSet("email", None)]
+
+class ActionProvidePDF(Action):
+    def name(self):
+        return "action_provide_pdf"
+    
+    async def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_message("You can find the inclusion of our tuition fees per program in our [Course Outline](https://mysait-my.sharepoint.com/:b:/r/personal/hyacinth_galicha_edu_sait_ca/Documents/AEC%20Files/COURSE%20OUTLINE%202023.pdf?csf=1&web=1&e=MWfdBg). For further questions regarding any of these, contact our admissions office.")
+        return []
