@@ -136,6 +136,7 @@ nlu:
 
 - intent: request_contact
   examples: |
+    - yes
     - yes please contact me
     - I would like more information
     - yes I want to be contacted
