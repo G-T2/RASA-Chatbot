@@ -1142,7 +1142,7 @@ nlu:
     - What kind of jobs can I get with the IT Professional Certificate?
     - How much does the IT Professional Certificate cost?
     
-- intent: ask_about_Cybersecurity_Spec_Diploma
+- intent: ask_about_Cybersecurity_Specialist_Diploma
   examples: |
     - What is the Cybersecurity Specialist Diploma about?
     - Does the Cybersecurity Diploma prepare for certifications like CISSP?
