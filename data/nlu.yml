@@ -1115,3 +1115,10 @@ nlu:
     - How do I plan a budget?
     - Can you tell me a funny story?
     - What’s your favorite way to relax?
+- intent: ask_about_PC_Technician
+- intent: ask_about_IT_Pro_Cert
+- intent: ask_about_Cybersecurity_Spec_Diploma
+- intent: ask_about_Security_Analyst_Cert
+- intent: ask_about_Digital_Office_Cert
+- intent: ask_about_Medical_Office_Assistant_Diploma
+- intent: ask_about_Cloud_Engineering_Diploma
