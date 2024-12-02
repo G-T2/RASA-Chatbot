@@ -165,6 +165,103 @@ class ValidateContactForm(FormValidationAction):
             formatted_phone = f"{phone_number[0]}-{phone_number[1:4]}-{phone_number[4:7]}-{phone_number[7:]}"
         return {"phone_number": formatted_phone}
 
+class ActionProgramInfo(Action):
+    def name(self) -> Text:
+        return "action_program_info"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Dictionary containing program information
+        program_info = {
+            "ask_about_PC_Technician_Certificate": {
+                "name": "PC Technician Certificate",
+                "description": ("Our PC Technician Certificate program provides comprehensive training in computer hardware, "
+                                "software troubleshooting, and system maintenance. You'll learn to diagnose and repair computer "
+                                "systems, install and configure operating systems, and provide technical support."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/PC%20TECHNICIAN%20COURSE%20OUTLINE%202023.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/pc-tech"
+            },
+            "ask_about_IT_Professional_Certificate": {
+                "name": "IT Professional Certificate",
+                "description": ("The IT Professional Certificate program offers a broad foundation in information technology, "
+                                "covering networking, systems administration, cybersecurity basics, and cloud computing fundamentals. "
+                                "This program prepares you for entry-level IT positions."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/IT%20PROFESSIONAL%20COURSE%20OUTLINE%202023.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/it-professional"
+            },
+            "ask_about_Cybersecurity_Specialist_Diploma": {
+                "name": "Cybersecurity Specialist Diploma",
+                "description": ("Our Cybersecurity Specialist Diploma program provides in-depth training in network security, "
+                                "ethical hacking, security operations, and incident response. You'll learn to protect systems "
+                                "from cyber threats and implement security measures."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/CYBERSECURITY%20SPECIALIST%20COURSE%20OUTLINE.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/cybersecurity-specialist"
+            },
+            "ask_about_Security_Analyst_Certificate": {
+                "name": "Security Analyst Certificate",
+                "description": ("The Security Analyst Certificate program focuses on security operations, threat analysis, "
+                                "and incident handling. You'll learn to use SIEM tools, perform vulnerability assessments, "
+                                "and respond to security incidents."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/SECURITY%20ANALYST%20COURSE%20OUTLINE%202023.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/security-analyst"
+            },
+            "ask_about_Digital_Office_Certificate": {
+                "name": "Digital Office Certificate",
+                "description": ("The Digital Office Certificate program teaches essential digital skills for modern office "
+                                "environments, including advanced Microsoft Office applications, digital communication tools, "
+                                "and office automation software."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/DIGITAL%20OFFICE%20COURSE%20OUTLINE%202023.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/digital-office"
+            },
+            "ask_about_Medical_Office_Assistant_Diploma": {
+                "name": "Medical Office Assistant Diploma",
+                "description": ("Our Medical Office Assistant Diploma program prepares you for administrative roles in "
+                                "healthcare settings. You'll learn medical terminology, billing procedures, electronic health "
+                                "records, and patient management systems."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/MEDICAL%20OFFICE%20ASSISTANT%20COURSE%20OUTLINE.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/medical-office-assistant"
+            },
+            "ask_about_Cloud_Engineering_Diploma": {
+                "name": "Cloud Engineering Diploma",
+                "description": ("The Cloud Engineering Diploma program covers major cloud platforms (AWS and Azure), "
+                                "containerization (Docker and Kubernetes), cloud architecture, and DevOps practices. "
+                                "You'll learn to design, deploy, and manage cloud infrastructure."),
+                "pdf_link": "https://www.afewoldiesandagoodie.ca/CLOUD%20ENGINEERING%20COURSE%20OUTLINE%202023.pdf",
+                "web_url": "https://www.afewoldiesandagoodie.ca/cloud-engineering"
+            }
+        }
+
+        # Get the intent from the latest user message
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent in program_info:
+            program = program_info[intent]
+
+            # Send program description
+            dispatcher.utter_message(text=f"About the {program['name']}:\n\n{program['description']}")
+
+            # Send program PDF link as a downloadable resource
+            dispatcher.utter_message(
+                text="Download the program outline below:",
+                buttons=[
+                    {
+                        "title": f"Download {program['name']} Outline",
+                        "payload": f"/download_pdf{{\"file_path\": \"{program['pdf_link']}\"}}"
+                    }
+                ]
+            )
+
+            # Provide the website link for more details
+            dispatcher.utter_message(
+                text=f"Learn more about this program on our website: {program['web_url']}"
+            )
+        else:
+            dispatcher.utter_message(text="I'm sorry, I couldn't find information about that specific program.")
+
+        return []
+
 class ActionSubmitToHubSpot(Action):
     def name(self) -> Text:
         return "action_submit_to_hubspot"
