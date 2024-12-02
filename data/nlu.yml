@@ -102,7 +102,6 @@ nlu:
     - call me [John](first_name)
     - [Smith](last_name) is my last name
     - here's my email [john.smith@example.com](email)
-    - intent: inform
     - my name is [John](first_name)
     - people call me [John](first_name)
     - it’s [John](first_name) for my first name
@@ -133,6 +132,21 @@ nlu:
     - [john.smith@example.com](email) is my email
     - use [john.smith@example.com](email) to reach me
     - [john.smith@example.com](email) is my preferred email
+    - my phone number is [1234567890](phone_number)
+    - [1234567890](phone_number)
+    - it's [1234567890](phone_number)
+    - you can reach me at [1234567890](phone_number)
+    - my number is [1234567890](phone_number)
+    - phone is [1234567890](phone_number)
+    - [1234567890](phone_number) is my phone number
+    - here's my phone [1234567890](phone_number)
+    - call me at [1234567890](phone_number)
+    - my contact number is [1234567890](phone_number)
+    - phone number [1234567890](phone_number)
+    - mobile number [1234567890](phone_number)
+    - cell is [1234567890](phone_number)
+    - telephone number is [1234567890](phone_number)
+    - you can call me at [1234567890](phone_number)
 
 - intent: request_contact
   examples: |
@@ -408,67 +422,10 @@ nlu:
     - What are your most popular courses?
     - Can you list all your diploma programs?
     - What certificate programs do you have?
-    - Are there any cybersecurity courses?
-    - Do you offer cloud computing programs?
-    - Tell me about your medical office assistant program
-    - What's involved in the PC technician course?
-    - Can you explain the IT professional certificate?
     - available programs
     - course offerings
     - what can I study
     - show me your programs
-    - What certificate programs do you have in IT?
-    - Can you tell me about the PC Technician program?
-    - Do you offer a course in cybersecurity?
-    - I’m interested in the IT Professional Certificate; what does it cover?
-    - Can I learn about cloud engineering at your school?
-    - What’s included in the Cybersecurity Specialist Diploma?
-    - Do you offer training for digital office skills?
-    - What courses are available for medical office training?
-    - Is there a program for becoming a Security Analyst?
-    - Tell me more about your cloud engineering options
-    - What’s required for the Digital Office Certificate?
-    - Can I get certified as a cybersecurity specialist?
-    - What does the PC Technician program entail?
-    - How can I become a Security Analyst with your courses?
-    - Do you have a Medical Office Assistant program?
-    - I’m interested in the IT Professional Certificate; how long is it?
-    - What topics are covered in cloud engineering?
-    - Can I get a certificate in digital office administration?
-    - What does the Security Analyst Certificate prepare me for?
-    - Is there a cybersecurity program with hands-on training?
-    - How can I get certified in PC repair?
-    - What’s the course structure for cybersecurity?
-    - Do you have a program for learning network security?
-    - Can I get more information on the Digital Office Certificate?
-    - Are there evening classes for the PC Technician program?
-    - What’s the duration of the Medical Office Assistant Certificate?
-    - Can I study cloud computing here?
-    - What’s involved in the IT Professional Certificate?
-    - How do I become a cybersecurity specialist with your courses?
-    - Do you offer job placement for the Security Analyst program?
-    - Is there a program for entry-level IT professionals?
-    - How do I enroll in the Cloud Engineering course?
-    - What will I learn in the PC Technician program?
-    - Are there certifications for digital office work?
-    - Can you tell me about your program in medical office assistance?
-    - What kind of training do you offer in IT security?
-    - How does the Cloud Engineering program work?
-    - What skills do I gain from the Cybersecurity Diploma?
-    - Is there a certificate for office administration?
-    - Do you offer training for security analysis?
-    - How can I prepare for a career as a PC technician?
-    - Can you give me details on the Medical Office Assistant program?
-    - Are there courses specifically for digital office skills?
-    - How do I sign up for the IT Professional Certificate?
-    - What’s the focus of the Security Analyst Certificate?
-    - Are there programs for cloud architecture?
-    - Can I specialize in cybersecurity with your courses?
-    - Do you offer certifications for IT professionals?
-    - What’s the next step after the IT Professional Certificate?
-    - Can I study computer support here?
-    - Do you have programs in network security?
-    - What entry-level programs do you offer in IT?
 
 - intent: ask_about_pricing
   examples: |
@@ -1129,20 +1086,20 @@ nlu:
     - What certifications do I get after completing PC Technician?
     - Does the PC Technician course include networking skills?
     - How do I enroll in the PC Technician course?
-    
+
 - intent: ask_about_IT_Professional_Certificate
   examples: |
     - Can you explain the IT Professional Certificate program?
-    - What’s included in the IT Pro Certification course?
+    - What's included in the IT Pro Certification course?
     - Is the IT Professional Certificate suitable for beginners?
     - What technologies are covered in the IT Professional Certificate?
     - Are there any exams in the IT Professional Certificate?
     - Can I take the IT Professional Certificate part-time?
-    - What’s the duration of the IT Professional Certificate?
+    - What's the duration of the IT Professional Certificate?
     - Is the IT Professional Certificate recognized in the industry?
     - What kind of jobs can I get with the IT Professional Certificate?
     - How much does the IT Professional Certificate cost?
-    
+
 - intent: ask_about_Cybersecurity_Specialist_Diploma
   examples: |
     - What is the Cybersecurity Specialist Diploma about?
@@ -1155,10 +1112,10 @@ nlu:
     - What qualifications do I need for the Cybersecurity Diploma?
     - How much does the Cybersecurity program cost?
     - Is the Cybersecurity Diploma online or in-person?
-    
+
 - intent: ask_about_Security_Analyst_Certificate
   examples: |
-    - What’s included in the Security Analyst Certificate program?
+    - What's included in the Security Analyst Certificate program?
     - Is the Security Analyst Certificate focused on SOC roles?
     - Does this cert include training in SIEM tools?
     - How long does it take to complete the Security Analyst Certificate?
@@ -1168,7 +1125,7 @@ nlu:
     - Does the Security Analyst program teach incident response?
     - Is the Security Analyst Certificate course recognized by employers?
     - How do I apply for the Security Analyst Certificate?
-    
+
 - intent: ask_about_Digital_Office_Certificate
   examples: |
     - What is the Digital Office Certificate about?
@@ -1178,13 +1135,13 @@ nlu:
     - What are the requirements for enrolling in the Digital Office Cert?
     - Is the Digital Office Certificate recognized by employers?
     - Does the course include advanced Microsoft Office training?
-    - What’s the cost of the Digital Office Certificate program?
+    - What's the cost of the Digital Office Certificate program?
     - Are there any internships as part of the Digital Office Cert?
     - How do I apply for the Digital Office Certificate course?
-  
+
 - intent: ask_about_Medical_Office_Assistant_Diploma
   examples: |
-   What’s covered in the Medical Office Assistant Diploma?
+    - What's covered in the Medical Office Assistant Diploma?
     - Can I work as a medical receptionist with this diploma?
     - How long does it take to complete the Medical Office Assistant Diploma?
     - What are the job prospects after the Medical Office Assistant course?
@@ -1194,7 +1151,7 @@ nlu:
     - How much does the Medical Office Assistant Diploma cost?
     - What are the prerequisites for the Medical Office Assistant Diploma?
     - Can I take the Medical Office Assistant course online?
-    
+
 - intent: ask_about_Cloud_Engineering_Diploma
   examples: |
     - What is included in the Cloud Engineering Diploma?
@@ -1206,4 +1163,4 @@ nlu:
     - Are there any prerequisites for the Cloud Engineering program?
     - Is the Cloud Engineering Diploma hands-on?
     - How do I enroll in the Cloud Engineering Diploma program?
-    - What’s the cost of the Cloud Engineering Diploma course?
+    - What's the cost of the Cloud Engineering Diploma course?
