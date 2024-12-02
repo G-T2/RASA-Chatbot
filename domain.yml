@@ -18,7 +18,14 @@ intents:
   - decline_contact
   - out_of_scope
   - ask_about_pricing
-  - inform 
+  - inform
+  - ask_about_PC_Technician_Certificate
+  - ask_about_IT_Professional_Certificate
+  - ask_about_Cybersecurity_Specialist_Diploma
+  - ask_about_Security_Analyst_Certificate
+  - ask_about_Digital_Office_Certificate
+  - ask_about_Medical_Office_Assistant_Diploma
+  - ask_about_Cloud_Engineering_Diploma 
 
 entities:
   - first_name
@@ -152,6 +159,7 @@ actions:
   - validate_contact_form
   - action_submit_to_hubspot
   - action_provide_pdf
+  - action_program_info
 
 session_config:
   session_expiration_time: 60
