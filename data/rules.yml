@@ -153,3 +153,38 @@ rules:
   - intent: decline_contact
   - action: utter_decline_contact
   - action: utter_goodbye
+
+- rule: Handle PC Technician Certificate inquiry
+  steps:
+  - intent: ask_about_PC_Technician_Certificate
+  - action: action_program_info
+
+- rule: Handle IT Professional Certificate inquiry
+  steps:
+  - intent: ask_about_IT_Professional_Certificate
+  - action: action_program_info
+
+- rule: Handle Cybersecurity Specialist Diploma inquiry
+  steps:
+  - intent: ask_about_Cybersecurity_Specialist_Diploma
+  - action: action_program_info
+
+- rule: Handle Security Analyst Certificate inquiry
+  steps:
+  - intent: ask_about_Security_Analyst_Certificate
+  - action: action_program_info
+
+- rule: Handle Digital Office Certificate inquiry
+  steps:
+  - intent: ask_about_Digital_Office_Certificate
+  - action: action_program_info
+
+- rule: Handle Medical Office Assistant Diploma inquiry
+  steps:
+  - intent: ask_about_Medical_Office_Assistant_Diploma
+  - action: action_program_info
+
+- rule: Handle Cloud Engineering Diploma inquiry
+  steps:
+  - intent: ask_about_Cloud_Engineering_Diploma
+  - action: action_program_info
