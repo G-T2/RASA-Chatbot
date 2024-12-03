@@ -415,5 +415,5 @@ class ActionProvidePDF(Action):
         return "action_provide_pdf"
     
     async def run(self, dispatcher, tracker, domain):
-        dispatcher.utter_message("You can find the inclusion of our tuition fees per program in our [Course Outline](https://mysait-my.sharepoint.com/:b:/r/personal/hyacinth_galicha_edu_sait_ca/Documents/AEC%20Files/COURSE%20OUTLINE%202023.pdf?csf=1&web=1&e=MWfdBg). For further questions regarding any of these, contact our admissions office.")
+        dispatcher.utter_message("You can find the inclusion of our tuition fees per program in our [Course Outline](https://www.afewoldiesandagoodie.ca/COURSE%20OUTLINE%202023.pdf). For further questions regarding any of these, contact our admissions office.")
         return []
