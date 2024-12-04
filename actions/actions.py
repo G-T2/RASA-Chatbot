@@ -45,7 +45,7 @@ class ActionProvideLink(Action):
         if intent == "ask_about_digital_id":
             message = "To register for MyAlberta Digital ID, go to the Create account page. Fill-in the rquested information and follow the navigation page here: [Alberta.ca Account](https://learnerregistry.ae.alberta.ca/Home/StartLookup)"
         elif intent == "ask_about_admissions":
-            message = "You can find detailed information about our admissions process here: [Admissions Page](https://myaec.ca/admissions/)"
+            message = "You can find detailed information about our admissions process here: [Admissions Page](https://www.afewoldiesandagoodie.ca/admissions)"
         else:
             message = "I'm sorry, I don't have a specific link for that information. How else can I assist you?"
             
