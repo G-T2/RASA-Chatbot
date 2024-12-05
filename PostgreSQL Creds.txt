@@ -1,0 +1,4 @@
+PostgreSQL Superuser
+username: postgres
+password: 0S@fgBA600
+port: 5432

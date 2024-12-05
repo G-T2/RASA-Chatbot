@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (message) {
             addMessageToChat('User', message);
 
-            fetch("https://fcd9-34-130-223-35.ngrok-free.app/webhooks/rest/webhook", {
+            fetch("https://e541-104-205-149-202.ngrok-free.app/webhooks/rest/webhook", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleTopicSelection(topic) {
         addMessageToChat('User', topic);
 
-        fetch("https://fcd9-34-130-223-35.ngrok-free.app/webhooks/rest/webhook", {
+        fetch("https://e541-104-205-149-202.ngrok-free.app/webhooks/rest/webhook", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

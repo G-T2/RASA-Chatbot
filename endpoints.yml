@@ -1,0 +1,21 @@
+# This file contains the different endpoints your bot can use.
+
+# Server which runs your custom actions.
+# https://rasa.com/docs/rasa/custom-actions
+action_endpoint:
+  url: "http://localhost:5055/webhook"
+
+# Tracker store which is used to store the conversations.
+# By default the conversations are stored in memory.
+# https://rasa.com/docs/rasa/tracker-stores
+
+# Event broker which all conversation events should be streamed to.
+# https://rasa.com/docs/rasa/event-brokers
+
+# CORS configuration
+cors:
+  allow_origins: 
+    - "*"
+  allow_methods: ["POST", "GET", "OPTIONS", "PUT", "DELETE"]
+  allow_headers: ["Content-Type", "Authorization"]
+  expose_headers: []
