@@ -413,6 +413,7 @@ nlu:
     - How do I check the status of my application?
     - What’s the timeline for acceptance notifications?
     - Are transcripts required for application?
+    - Tuition
 
 - intent: ask_about_programs
   examples: |
@@ -429,6 +430,7 @@ nlu:
     - what can I study
     - show me your programs
     - program
+    - diploma
 
 - intent: ask_about_pricing
   examples: |
