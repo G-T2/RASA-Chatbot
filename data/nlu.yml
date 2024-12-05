@@ -147,6 +147,8 @@ nlu:
     - cell is [1234567890](phone_number)
     - telephone number is [1234567890](phone_number)
     - you can call me at [1234567890](phone_number)
+    - can someone call me?
+    - can someone give me a call?
 
 - intent: request_contact
   examples: |
@@ -426,6 +428,7 @@ nlu:
     - course offerings
     - what can I study
     - show me your programs
+    - program
 
 - intent: ask_about_pricing
   examples: |
@@ -821,6 +824,7 @@ nlu:
     - What number should I call to ask about programs?
     - Do you have a contact number for registration?
     - Where do I call for financial aid questions?
+    - what's your contact number
 
 - intent: ask_about_financial_aid
   examples: |
